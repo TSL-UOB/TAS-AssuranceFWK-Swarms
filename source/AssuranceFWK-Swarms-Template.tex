@@ -1,0 +1,188 @@
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+\begin{document}
+
+\title{Framework for Assurance of Emergent Behaviour for use in Autonomous Robotic Swarms}
+
+\author{Author1\_Name, Author2\_Name, ...AuthorN\_Name,
+\thanks{Author1 and Author2 are with the Department of Dep1\_Name (email: , )}
+\thanks{AuthorN is with the Department of Dep2\_Name (email: )}}
+%\thanks{Manuscript received April 19, 2021; revised August 16, 2021.}}
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2021}%
+{Shell \MakeLowercase{\textit{et al.}}: A Sample Article Using IEEEtran.cls for IEEE Journals}
+
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2021 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+\maketitle
+
+\begin{abstract}
+	Abstract of the paper.
+\end{abstract}
+
+\begin{IEEEkeywords}
+	Assurance, swarm robotics, trustworthiness, safety, transparency, ethics, autonomous systems
+	%Swarm Robotics, Acceptability and Trust, Autonomous Agents
+\end{IEEEkeywords}
+
+\section{Introduction}\label{introduction}
+The main contribution of this paper is a novel framework for assurance of emergent behaviour for use in autonomous robotic swarms based on the AMLAS, SACE* and SOCA* guidance (* under consideration). We illustrate the framework using a public cloakroom case study. 
+
+\section{Background and Related Work}\label{background-relatedwork}
+
+\subsection{Background}\label{background}
+
+\subsubsection{Specification Challenges and Standards}
+%\newline With respect to swarms, the overall behaviours of a swarm are not explicitly engineered in the system, but they are an emergent consequence of the interaction of individual agents with each other and the environment.
+%This emergent functionality poses a challenge for specification. 
+%\newline How do you ensure safety or any other extra-functional property of a swarm where the swarm’s behaviour is an “emergent” consequence of the interaction of individual agents with each other and their environment?
+%Swarm behaviours:
+%\newline Aggregation 
+%\newline Coherent ad-hoc network
+%\newline Information retrieval
+%\newline Taxis towards pick up and delivery areas of boxes
+%\newline Obstacle avoidance
+%\newline Object organization
+%
+%\textit{IEEE P7001} standard describes measurable, testable levels of transparency for autonomous systems so that they can be objectively assessed and levels of compliance determined\cite{IEEE-P7001}. 
+%This standard outlines five stakeholder groups, and for each group it explains the structure of the normative definitions of levels of transparency. 
+%\textit{IEEE P7001} can be applied to assess the transparency of an existing system using a process of System Transparency Assessment, or to specify transparency requirements for a system prior to its implementation (System Transparency Specification).
+%The 5 stakeholders are end users, general public and bystanders, safety certification agencies and auditors, incident/accident investigators, expert advisors.
+%
+%In service robotics, ISO 13482 covers the hazards presented by the robots and devices for applications in non-industrial environments for providing services. 
+%ISO 23482-1 and ISO 23482-2 standards extend ISO 13482 with guidance and methods that can be used to test personal care robots.
+%On the other hand, in the industrial sector, ISO 10218-1 and ISO 10218-2 provide safety requirements for industrial robots and their integration.
+%Meanwhile, ISO/TS 15066 provides safety requirements for collaborative industrial robot systems and work environment. 
+%Although these industry standards focus on ensuring safety of robots at the individual robot level, they do not ensure safety or any other extra-functional property at the swarm level, which is a limitation.
+%
+%This Figure shows a categorization of robots by ISO. 
+%Identifying which robot category the individual robots of the cloakroom is important because different legal and regulatory requirements apply to different robot categories.
+%The “service robot” contains most robot categories, except industrial robot. 
+%These are: household robots, medical robots and personal care robots.
+%The individual robots of the cloakroom better fit into the “mobile servant robots” category, which is a type of personal care robot under service robots.
+%A mobile servant robot is a personal care robot capable of travelling to perform serving tasks in interaction with humans, e.g. handling objects or exchanging information [ISO 13482:2014, 3.14].
+\vspace{2mm}
+
+\subsubsection{Robotic Swarms}
+%\noindent Autonomous
+%\\ \noindent Large Number of agents (10+)
+%\\ \noindent Relatively incapable individuals
+%\\ \noindent Restrained Homogeneity
+%\\ \noindent Minimal communication capabilities (Decentralised)
+\vspace{2mm}
+
+\subsubsection{Case Study}
+
+\vspace{2mm}
+\noindent\textbf{\textit{\newline[Author Guidelines: Please use the cloakroom case study to illustrate the framework in Section III. If the examples in cloakroom case study are not sufficient, other swarm use cases listed below can be considered.]}}
+
+\paragraph{\textbf{Cloakroom}}
+The case study describes a public cloakroom where swarm of robots assist customers looking to deposit their jackets at an event \cite{Jones2020}. 
+It describes cases where customers are depositing jackets, handing a jacket to a robot for storing, and retrieval of jackets back to the customer. 
+
+\paragraph{Other Swarm Use Cases}
+\textbf{\\Fault detection, diagnosis and recovery – Monitoring fires in a natural environment}. Fault detection model shall be trained to high level of accuracy. Thresholds for fault tolerance shall be set appropriately such that misclassification of a fault is a rare event. An agent experiencing minor faults shall not be immediately removed, should the fault not impact the task at hand. \\
+\textbf{\noindent Social swarm – Brainstorming at an event}. Humans follow robots which cluster based on input. Minimise blocking paths of other humans and agents. Maintain situational awareness of humans and agents in the environment. Before the task, provide a clear explanation of the steps of the activity. Clear guidance during the task. Provide information about how the swarm/robot works.
+
+\noindent See research paper ``Mutual shaping in swarm robotics: User studies in fire and rescue, storage organization, and bridge inspection" \cite{Carrillo-Zapata2020}.
+
+\subsection{Related Work}\label{relatedwork}
+
+\subsubsection{Assurance of Machine Learning in Autonomous Systems (AMLAS)}
+%\cite{Hawkins2021}
+\textit{Assurance of Machine Learning for use in Autonomous Systems (AMLAS)} provides guidance on how to systematically integrate safety assurance into the development of machine learning components based on offline supervised learning \cite{AMLAS2021}. 
+AMLAS provides an explicit and structured safety case that the system is safe to operate in its intended context of use. 
+AMLAS contains six stages, and the assurance activities are performed in parallel to the development of machine learning component. 
+The process is iterative by design and feedback is used to update previous stages. 
+
+\subsubsection{Safety Assurance of Autonomous Systems in Complex Environments (SACE)}
+\cite{SACE2022}
+
+\subsubsection{Societal Acceptability of Autonomous Systems (SOCA)}
+\cite{Porter2022,McDermid2021}
+
+\section{Framework}\label{framework}
+
+\subsection{Overview of Framework} \label{framework-overview}
+%Simple algorithms are executed by individuals.
+%These simple behaviours performed by large numbers of agents build to emergent behaviours.
+%The adaptivity provided by emergence requires assurance. 
+%
+%Safety Assurance Process based on AMLAS targeting robotic swarms:
+%Emergent behaviour
+%Failure conditions that the output of an individual robot or a robot in the neighbourhood makes to potential swarm-level hazards.
+%
+%Scope of current study:
+%Looking purely at inherent swarm qualities and the adaptation that stems from these.
+%Developing individual behaviours which when combined create an adaptive emergence.
+%Machine/Reinforcement Learning should not be considered at this time.
+%We may expand to ML/RL for individuals. (Application of AMLAS to individuals once AMLAS has been applied to the swarm)
+\vspace{2mm}
+
+\subsection{Stage 1: EB Safety Assurance Scoping} \label{framework-stage1}
+\noindent \textbf{\textit{[Lead:  WP1]}}\\
+\noindent\textbf{\textit{[Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. Activities: 1, 2; Inputs: A, B, C, D, F; Outputs: E, G]}}\\
+
+\subsection{Stage 2: EB Safety Requirements Assurance} \label{framework-stage2}
+\noindent \textbf{\textit{[Lead:  WP1; Other: WP2, WP3]}}\\ 
+\noindent\textbf{\textit{[Author Guidelines: 1800–2700 words / 2–3 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. \\
+\noindent WP1 = (Activities: 3, 4, 5; Inputs: E, I; Outputs: H, J, K))\\
+\noindent WP2 = (List of Ethical Requirements and Description: 675 words / 0.75 page maximum)\\
+\noindent WP3 = (List of Socio-Technical/Regulatory Requirements and Description: 675 words / 0.75 page maximum)]
+}}\\
+
+\subsection{Stage 3: Data Management} \label{framework-stage3}
+\noindent \textbf{\textit{[Lead:  WP5]}}\\ 
+\noindent\textbf{\textit{Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. Activities: 6, 7, 8; Inputs: H; Outputs: L0, L1, M, N, O, P, Q, S}}\\
+
+\subsection{Stage 4: Model Emergent Behaviour} \label{framework-stage4}
+\noindent \textbf{\textit{[Lead:  WP5]}}\\ 
+\noindent\textbf{\textit{Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. Activities: 10, 11; Inputs: H, N, O; Outputs: Candidate EB Algorithm, U, V, X}}\\\\
+
+\subsection{Stage 5: Model Verification} \label{framework-stage5}
+\noindent \textbf{\textit{[Lead:  WP4]}}\\ 
+\noindent\textbf{\textit{Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. Activities: 13; Inputs: H, P, V; Outputs: Z, AA}}\\
+
+\subsection{Stage 6: Model Deployment} \label{framework-stage6}
+\noindent \textbf{\textit{[Leads:  WP4 \& WP5; Additional: WP3]}}\\ 
+\noindent\textbf{\textit{Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples.\\ 
+\noindent WP5 = (Activities: 15, Inputs: V, A, B, C, D, Outputs: DD), \\
+\noindent WP4 = (Activities: 16, Inputs: EE, Outputs: FF), \\
+\noindent WP3 = (Regulatory Considerations – 675 words / 0.75 page maximum)}}\\
+
+%\subsection{Stage 7: Assurance Case}
+	
+\section{Discussion and Conclusions} \label{discussion-conclusions}
+
+\section*{Acknowledgments}
+The work presented in this paper has been supported by the UK Engineering and Physical Sciences Research Council (EPSRC) under the grant [EP/V026518/1].
+
+{\appendices
+\section*{Appendix A. Supplementary Material}
+The supplementary material associated with this article can be found online at (https://www.).
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{AssuranceFWK-Swarms-Bibliography}
+
+\newpage
+
+\vfill
+
+\end{document}
+
+

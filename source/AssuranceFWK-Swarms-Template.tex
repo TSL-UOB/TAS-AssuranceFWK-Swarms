@@ -42,6 +42,9 @@
 \section{Introduction}\label{introduction}
 The main contribution of this paper is a novel framework for assurance of emergent behaviour for use in autonomous robotic swarms based on the AMLAS, SACE* and SOCA* guidance (* under consideration). We illustrate the framework using a public cloakroom case study. 
 
+%\\\noindent\textbf{\textit{[Author General Guidelines: please write as a paper not as a Guidance like AMLAS; Please do not use AERoS word]}}\\
+
+
 \section{Background and Related Work}\label{background-relatedwork}
 
 \subsection{Background}\label{background}
@@ -146,11 +149,144 @@ See Fig.~\ref{amlas-a-stage1}
 
 \subsection{Stage 2: EB Safety Requirements Assurance} \label{framework-stage2}
 \noindent \textbf{\textit{[Lead:  WP1; Other: WP2, WP3]}}\\ 
-\noindent\textbf{\textit{[Author Guidelines: 1800–2700 words / 2–3 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. \\
-\noindent WP1 = (Activities: 3, 4, 5; Inputs: E, I; Outputs: H, J, K))\\
-\noindent WP2 = (List of Ethical Requirements and Description: 675 words / 0.75 page maximum)\\
-\noindent WP3 = (List of Socio-Technical/Regulatory Requirements and Description: 675 words / 0.75 page maximum)]
+\noindent\textbf{\textit{[Author Guidelines: total 7 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. \\
+\noindent WP1 = (Activities: 3, 4, 5; Inputs: E, I; Outputs: H, J, K: 2700 words / 3 pages maximum))\\
+\noindent WP2 = (List of Ethical Requirements and Description: 1800 words / 2 pages maximum)\\
+\noindent WP3 = (List of Socio-Technical/Regulatory Requirements and Description: 1800 words / 2 pages maximum)]
 }}\\
+
+\newpage
+\noindent \textbf{Stage 2 Requirements (Input H)}\\
+\noindent \textbf{Cloakroom: Performance Requirements: }
+\begin{center}
+	\begin{tabular}{|p{7mm}|p{72mm}|}
+		\hline
+		& \textbf{Requirements for Faultless Operations} \\
+		\hline
+		RQ1.1 & The swarm \emph{shall} experience $<$ 1 low impact (V $<$ 0.5m/s) collisions across 1000 seconds of faultless operation. \\ 
+		\hline
+		RQ1.2 & The swarm \emph{shall} experience $<$ 1 high impact (V $>$ 0.5m/s) collisions across a day of faultless operation. \\ 
+		\hline
+        & \textbf{Requirements for Failure Modes (Graceful Degradation): } \\
+        \hline
+		RQ1.3 & The swarm \emph{shall} experience $<$ 10\% increase in low impact collisions across 1000 seconds of operation with 10\% injection of full communication fault to the swarm. \\
+		\hline
+		RQ1.4 & The swarm \emph{shall} experience $<$ 0.1\% increase in high impact collisions across a days operation with 10\% injection of full communication fault to the swarm.\\ 
+		\hline
+		RQ1.5 & The swarm \emph{shall} experience $<$ 10\% increase in low impact collisions across 1000 seconds of operation with 50\% injection of half-of-wheels motor faults to the swarm.\\
+		\hline
+		RQ1.6 & The swarm \emph{shall} experience $<$ 0.1\% increase in high impact collisions across a days operation with 50\% injection of half-of-wheels motor faults to the swarm.	\\	
+		\hline
+	    & \textbf{Requirements for Worst Case: } \\
+	    \hline
+		RQ1.7 & The swarm \emph{shall} experience $<$ 2 low impact (V $<$ 0.5m/s) collisions across 1000 seconds of faulty operation. \\			\hline	
+		RQ1.8 & The swarm \emph{shall} experience $<$ 2 high impact (V $>$ 0.5m/s) collisions across a day of faulty operation.  \\		[1ex] 		
+		\hline
+	\end{tabular}
+\end{center}
+
+\noindent \textbf{Cloakroom: Adaptability Requirements: }
+\begin{center}
+	\begin{tabular}{|p{7mm}|p{72mm}|}
+		\hline
+		& \textbf{Requirements for Faultless Operations} \\
+		\hline
+		RQ2.1 & The Swarm \emph{shall} have $<$ 10\% of its agents stationary* outside of the delivery site at a given time.
+		*Assumption: Agents are considered stationary once they have not moved for $>$ 10 seconds.
+		 \\ 
+		\hline
+		RQ2.2 & All agents of the swarm \emph{shall} move at least every 100 seconds if outside of the delivery site. \\ 
+		\hline
+		& \textbf{Requirements for Failure Modes (Graceful Degradation): } \\
+		\hline
+		RQ2.3 & The swarm \emph{shall} experience $<$ 10\% increase in number of station agents at any given time with 50\% injection of half-of-wheels motor faults to the swarm. \\
+		\hline
+		RQ2.4 & The swarm agents \emph{shall} experience $<$ 10\% increase in stationary time with 50\% injection of half-of-wheels motor faults to the swarm.\\ 
+		\hline
+		RQ2.5 & The swarm \emph{shall} experience $<$ 10\% increase in number of station agents at any given time 10\% injection of full communication fault to the swarm.\\
+		\hline
+		RQ2.6 & The swarm agents \emph{shall} experience $<$ 10\% increase in stationary time 10\% injection of full communication fault to the swarm. \\	
+		\hline
+		& \textbf{Requirements for Worst Case: } \\
+		\hline
+		RQ2.7 & The Swarm \emph{shall} have $<$ 20\% of its agents stationary* outside of the delivery site at a given time.
+		*Assumption: Agents are considered stationary once they have not moved for $>$ 10 seconds. \\			\hline	
+		RQ2.8 & All agents of the swarm \emph{shall} move at least every 200 seconds if outside of the delivery site.\\		[1ex] 		
+		\hline
+	\end{tabular}
+\end{center}
+
+\noindent Metric: Swarm waiting time/time-in-area
+
+\newpage
+\noindent \textbf{Cloakroom: Human Safety Requirements: }
+\begin{center}
+	\begin{tabular}{|p{9mm}|p{72mm}|}
+		\hline
+		& \textbf{Requirements for Faultless Operations} \\
+		\hline
+		RQ3.1 & The agents in the swarm \emph{shall} travel at speeds of less than 0.5m/s when within 2m distance of a Trained Human*
+		\\ 
+		\hline
+		RQ3.2 & The agents in the swarm \emph{shall} travel at speeds of less than 0.25m/s when within 3m distance of a member of the public.
+		\\ 
+		\hline
+		RQ3.3 & The agents in the swarm \emph{shall} only come within 2m distance of a human $<$ 10 times collectively across 1000 seconds of faultless operations.
+		\\ 
+		\hline
+		RQ3.4 & The swarm \emph{shall} only allow $<$ 5 agents to request intervention from a Trained Human* at a given time
+		\\ 
+		\hline
+		RQ3.5 & A Trained human \emph{shall} monitor 5-20 agents at a given time.
+		\\ 
+		\hline
+		RQ3.6 & The swarm \emph{shall} only allow 1 agent to request input from a member of the public at a given time.
+		\\ 
+		\hline
+		RQ3.7 & A member of the public \emph{shall} receive $<$ 5 agents of swarm information at a given time.
+		\\ 
+		\hline
+		& \textbf{Requirements for Failure Modes: } \\
+		\hline
+		RQ3.8 & The swarm \emph{shall} experience $<$ 10\% increase in human encounters across 1000 seconds of operation with 10\% injection of full communication fault to the swarm. \\
+		\hline
+		RQ3.9 & The swarm \emph{shall} experience $<$ 10\% increase in human encounters across 1000 seconds of operation with 50\% injection of half-of-wheels motor faults to the swarm.\\ 
+		\hline
+		& \textbf{Requirements for Worst Case: } \\
+		\hline
+		RQ3.10 & The agents in the swarm \emph{shall} only come within 2m distance of a human $<$ 20 times collectively across 1000 seconds of faulty operations.
+		\\		[1ex] 		
+		\hline
+	\end{tabular}
+\end{center}
+\noindent *Trained Human in this case refers to workers within the case study setting. We assume that this individual has received relevant training \& experience in the use of the swarm system.\\
+
+
+\noindent \textbf{Cloakroom: Environmental Specification: }
+\begin{center}
+	\begin{tabular}{|p{7mm}|p{72mm}|}
+		\hline
+		RQ4.1 & The swarm \emph{shall} perform as required in environmental density levels 0-4 p$_o$* of objects (sum of boxes and agents) in the environment.
+		\\ 
+		\hline
+		RQ4.2 & The swarm \emph{shall} perform as required when floor incline is 0-20 degrees.
+		\\ 
+		\hline
+		RQ4.3 & The swarm \emph{shall} perform as required in a dry environment.
+		\\ 
+		\hline
+		RQ4.4 & The swarm \emph{shall} perform as required in smooth-floored environments with step increases no greater than 0.5cm.
+		\\ 
+		\hline
+		RQ4.5 & The swarm \emph{shall} only operate in environments where humans have devices that identify the human’s whereabouts to the swarm agents.
+		\\		[1ex] 		
+		\hline
+	\end{tabular}
+\end{center}
+\noindent *p$_o$ = sum of objects  / m$^2$
+
+
+
 See Fig.~\ref{amlas-a-stage2}
 \begin{figure*}
 	\centering

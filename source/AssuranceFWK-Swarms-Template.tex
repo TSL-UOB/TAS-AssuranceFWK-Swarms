@@ -152,9 +152,6 @@ See Fig.~\ref{amlas-a-stage1}
 \noindent\textbf{\textit{[Author Guidelines: total 7 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. \\
 \noindent WP1 = (Activities: 3, 4, 5; Inputs: E, I; Outputs: H, J, K: 2700 words / 3 pages maximum))\\
 \noindent WP2 = (List of Ethical Requirements and Description: 1800 words / 2 pages maximum)\\
-
-test 
-
 \noindent WP3 = (List of Socio-Technical/Regulatory Requirements and Description: 1800 words / 2 pages maximum)]
 }}\\
 
@@ -305,15 +302,104 @@ See Fig.~\ref{amlas-a-stage2}
 \end{figure*}
 
 \subsection{Stage 3: Data Management} \label{framework-stage3}
-\noindent \textbf{\textit{[Lead:  WP5]}}\\ 
-\noindent\textbf{\textit{Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. Activities: 6, 7, 8; Inputs: H; Outputs: L0, L1, M, N, O, P, Q, S}}\\
-See Fig.~\ref{amlas-a-stage3}
+% \noindent \textbf{\textit{[Lead:  WP5]}}\\ 
+% \noindent\textbf{\textit{Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. Activities: 6, 7, 8; Inputs: H; Outputs: L0, L1, M, N, O, P, Q, S}}\\
+% See Fig.~\ref{amlas-a-stage3}
+% \begin{figure*}
+% 	\centering
+% 	\includegraphics[width=1.0\textwidth]{figures/amlas-a-stage3.png}
+% 	\caption{Adapted AMLAS data management process.}
+% 	\label{amlas-a-stage3}
+% \end{figure*}
+
+In the case of designing emergent behaviours data plays a vital role, though one that differs from the machine learning applications AMLAS was initially designed for. In order to address this difference, the following activities and outputs have been adjusted to take into account the swarm behavioural design process and the added complexities that come with multiple agents interacting with one another.
+
 \begin{figure*}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/amlas-a-stage3.png}
+	\includegraphics[width=1.0\textwidth]{source/figures/Stage3_DM.png}
 	\caption{Adapted AMLAS data management process.}
 	\label{amlas-a-stage3}
 \end{figure*}
+
+\subsubsection*{Activity 6. Define Data Requirements}
+
+% AMLAS - This activity requires as input the ML safety requirements ([H]) as described in Stage 2 and, from these requirements, data requirements ([L]) shall be generated. Of particular interest in the development of data requirements are those safety requirements which pertain to the description of the system environment.
+
+In our adaptation of activity 6 we take the emergent behaviour safety requirements [H] outlined in Stage 2 as an input. These safety requirements guide the data requirements in this activity, feeding into the data specification that we outline here. Unlike the original AMLAS framework, we have split the data requirement [L] into two multi-agent focused requirements: [L.0] data type requirements and [L.1] data availability constraints.
+
+\paragraph*{[L.0] Data Type Requirements}
+
+This elements focus on the relevance, completeness, accuracy, and balance of the information that will be used to construct the swarm behaviour and will be subsequently used to test the emergent behaviour of the system prior to its deployment.
+
+The relevance of the data used in the development of the emergent behaviour specifies the extent to which the test environment must match the intended operating domain into which the model is to be deployed.
+
+The completeness of the data specifies the conditions under which we test the behaviour algorithm i.e. the volume of experiments or tests that will be run, the variety of tests executed, and the diversity of environments expected to be used in the testing process.
+
+Accuracy in this context relates to the parameters defining the performance of the swarm systems primary function. For example, what constitutes a delivery in a logistics scenario, or under what conditions would an area be considered explored in a surveying mission.
+
+Balance, outside of a machine learning use case, refers the balance of the trials executed in the testing process of the emergent behaviour algorithm. By considering balance, we expect the number of tests conducted for individual failure modes or environment types to be justified, ensuring that there is not an unrealistic bias in testing towards a particular scenario.
+
+In Table \ref{tab:L0} we list each of the requirement focuses considered in this output and provide respective examples of swarm data requirements.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{2cm} p{6cm}}
+        \textbf{Requirement} & \textbf{Example} \\
+        \hline
+        Relevance & All simulations shall include environments with different ranges of incline between 0-20\textdegree.\\
+        Completeness & All simulations shall be repeated to include fault injections representative of full communication faults.\\
+        Accuracy & All boxes shall only be considered ‘delivered’, if all four of the boxes’ feet are positioned within the delivery zone.\\
+        Balance & All simulations shall be repeated equally across all test environments.\\
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:L0}
+\end{table}
+
+\paragraph*{[L.1] Data Availability Constraints}
+
+With the introduction of multiple agents comes the issue of data availability. Distributed communication is a key feature found in emergent systems. As such, it is crucial to define how much information each agent is expected to hold, how easily data may transfer between agents, and across what range agents should be able to transfer information between one another. We present a list of feasible constrains with representative examples in Table \ref{tab:constraints}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{2cm} p{6cm}}
+         \textbf{Constraint Type} & \textbf{Example}  \\
+         \hline
+         Storage capacity & The swarm agents shall have a maximum of 2 GB of information stored on board at any point in time. \\
+         Available sensors & The swarm agents shall only have access to environmental data deemed feasibly collectable by infrared sensors positioned radially every 30 degrees. \\
+         Communications Range & The swarm agents shall only have access to other agent data when within communications range of 5 meters. \\
+         Operator feedback & The swarm agents shall only share information with non-agent’s (e.g. operator terminal) when within communications range of 5 meters.
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:constraints}
+\end{table}
+
+\paragraph*{[M] Data Requirements Justification Report}
+
+This report remains mainly unchanged from the traditional AMLAS framework. This report acts as an assessment of the data requirements, providing analysis and explanation for how the requirements and constraints (outlined in [L.0] and [L.1]) address the emergent behaviour safety requirements specified in [H].
+
+\subsubsection*{Activity 7. Define Swarm Evaluation Requirements}
+
+Taking the outputs [L.0] and [L.1] from the activity 6, the evaluation requirements take into account how the emergent behaviour of the swarm will be assessed, specifying the testing environment and the metrics comprising the test results.  
+
+\paragraph*{[N] Test Environment}
+
+This output takes into consideration the requirements specified in activity 6 and defines the environment in which the emergent behaviour will be tested. In most cases this will be multiple simulation environments featuring diverse sets of terrain, environmental conditions and obstacle configurations. There may also be instances in which this test environment is specified as a physical environment operating under laboratory conditions, with a hardware systems acting as a test bed to observe designed behaviours.
+
+\paragraph*{[O] Swarm Performance Metrics}
+
+The performance metrics specified in this activity are used to quantify how well the system is performing. While there may be multiple performance metrics, these metrics should be defined with respect to the primary function of the swarm system. Metrics that might feature in this output could include: the delivery rate in a logistics scenario, rate of area coverage as well as the efficiency of said coverage in an exploration task, or the response time in a disaster scenario.
+
+\paragraph*{[P] Verification Metric}
+
+These metrics should be derived from the safety requirements [H] specified in Stage 2. These metrics are intended to be used as the criteria for success within the verification process. Examples of these metrics might include: the swarm density, maximum collision force experienced by agents, or the average speed of all agents at a given time.
+
+\paragraph*{[Q] Sensing and Metric Assumptions Log}
+
+Much like the data log used within the traditional AMLAS framework, this log serves as a record of the details and decisions made in activities 6 and 7. This log should contain details of the choices made when producing the Test environment [N], Swarm Performance Metrics [M] and the Verification Metric [P].
+
+\subsubsection*{Activity 8. Validate Evaluation Requirements}
+
+Taking into account outputs [N], [O] and [P] from activity 7, this activity aims to validate these components with respect to the requirements specified in activity 6. Should any discrepancies exist between the data requirements and the evaluation requirements, they should be justified appropriately and recorded in output [S] Swarm Evaluation Validation Results.
 
 \subsection{Stage 4: Model Emergent Behaviour} \label{framework-stage4}
 \noindent \textbf{\textit{[Lead:  WP5]}}\\ 

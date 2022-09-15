@@ -9,6 +9,7 @@
 \usepackage{url}
 \usepackage{verbatim}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{cite}
 \hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
 
@@ -529,6 +530,22 @@ See Fig.~\ref{amlas-a-stage6}
 	\caption{Adapted AMLAS model deployment assurance process (right).}
 	\label{amlas-a-stage6}
 \end{figure*}
+
+\subsubsection*{Activity 15. Integrate EB}
+
+\textcolor{red}{With the emergent behaviour verified, the next step is to take the model [V] as well as the system safety requirements [V], environment description [B] and system description [C] and integrate the emergent behaviour with the system to be deployed. In this activity we use the inputs to this stage to educate the implementation of the emergent behaviour and anticipate errors we might expect in the interactions between agents and the overall emergent behaviour. Despite the rigorous validation and testing conducted in previous stages, there will still be a gap between the test environment and the intended, every day use, deployed scenario. The output, [DD] Model Development Log, captures these anticipated gaps between testing and reality and the differences in behaviour that might sprout from them.}
+
+\textcolor{red}{For example, once physically deployed it may become apparent that large fluctuations in speed used to maintain performance while keeping the system safe for Humans, may in reality be too much of a draw on the agents batteries to get a reasonable lifetime out of each battery charge. To address this the behaviour may need to be tweaked to sacrifice some performance in the short term, reducing the rates of acceleration experienced by agents, in order to gain a longer battery life.}
+
+\subsubsection*{Activity 16. Test the Integration}
+
+Description
+
+\paragraph*{[EE] Operational Scenarios}
+
+\textcolor{red}{Discuss this, should it feed in from [B] the environment description? How does it differ from [B]?}
+
+\paragraph*{[FF] Integration Testing Results}
 
 
 

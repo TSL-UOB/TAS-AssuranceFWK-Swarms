@@ -331,46 +331,105 @@ In our adaptation of activity 6 we take the emergent behaviour safety requiremen
 
 This elements focus on the relevance, completeness, accuracy, and balance of the information that will be used to construct the swarm behaviour and will be subsequently used to test the emergent behaviour of the system prior to its deployment.
 
-The relevance of the data used in the development of the emergent behaviour specifies the extent to which the test environment must match the intended operating domain into which the model is to be deployed.
+The relevance of the data used in the development of the emergent behaviour specifies the extent to which the test environment must match the intended operating domain into which the model is to be deployed. Examples of requirements relating to relevance are shown in Table \ref{tab:L0_relevance}.
 
-The completeness of the data specifies the conditions under which we test the behaviour algorithm i.e. the volume of experiments or tests that will be run, the variety of tests executed, and the diversity of environments expected to be used in the testing process.
-
-Accuracy in this context relates to the parameters defining the performance of the swarm systems primary function. For example, what constitutes a delivery in a logistics scenario, or under what conditions would an area be considered explored in a surveying mission.
-
-Balance, outside of a machine learning use case, refers the balance of the trials executed in the testing process of the emergent behaviour algorithm. By considering balance, we expect the number of tests conducted for individual failure modes or environment types to be justified, ensuring that there is not an unrealistic bias in testing towards a particular scenario.
-
-In Table \ref{tab:L0} we list each of the requirement focuses considered in this output and provide respective examples of swarm data requirements.
-
-\begin{table}[H]
+\begin{table}[h]
     \centering
-    \begin{tabular}{p{2cm} p{6cm}}
-        \textbf{Requirement} & \textbf{Example} \\
+    \begin{tabular}{p{1cm} p{6cm}}
+        \textbf{ID} & \textbf{Example} \\
         \hline
-        Relevance & All simulations shall include environments with different ranges of incline between 0-20\textdegree.\\
+        RQ 5.1 & All simulations shall include environments with different ranges of incline between 0-20\textdegree.\\
         \hline
-        & All simulations shall be conducted in a dry environment.\\
+        RQ 5.2 & All simulations shall be conducted in a dry environment.\\
         \hline
-        & All simulations shall include floors with step increases that are $\leq$ 0.5 cm.\\
-        \hline
-        Completeness & All simulations shall be repeated to include fault injections representative of full communication faults.\\
-        \hline
-        & All simulations shall be repeated a sufficient number of times to ensure results are representative of typical use.\\
-        \hline
-        & All simulations shall be repeated in multiple environments representative of those expected in real-world use of the system.\\
-        \hline
-        & All simulations shall include sufficient range of robot density levels within the scope of the operational domain.\\
-        \hline
-        Accuracy & All boxes shall only be considered ‘delivered’, if all four of the boxes’ feet are positioned within the delivery zone.\\
-        \hline
-        & All boxes shall only be considered ‘delivered’, once they are no longer in direct contact with a swarm agent.\\
-        \hline
-        Balance & All simulations shall be repeated equally across all test environments.\\
-        \hline
-        & All simulations shall be repeated equally across all test environments.\\
+        RQ 5.3 & All simulations shall include floors with step increases that are $\leq$ 0.5 cm.\\
     \end{tabular}
-    \caption{Requirement focuses for output [L.0] with representative examples from the cloakroom use case.}
-    \label{tab:L0}
+    \caption{Relevance requirement examples for output [L.0].}
+    \label{tab:L0_relevance}
 \end{table}
+
+The completeness of the data specifies the conditions under which we test the behaviour algorithm i.e. the volume of experiments or tests that will be run, the variety of tests executed, and the diversity of environments expected to be used in the testing process. Requirements examples relating to completeness are shown in Table \ref{tab:L0_completeness}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{1cm} p{6cm}}
+        \textbf{ID} & \textbf{Example} \\
+        \hline
+        RQ 6.1 & All simulations shall be repeated to include fault injections representative of full communication faults.\\
+        \hline
+        RQ 6.2 & All simulations shall be repeated a sufficient number of times to ensure results are representative of typical use.\\
+        \hline
+        RQ 6.3 & All simulations shall be repeated in multiple environments representative of those expected in real-world use of the system.\\
+        \hline
+        RQ 6.4 & All simulations shall include sufficient range of robot density levels within the scope of the operational domain.\\ 
+    \end{tabular}
+    \caption{Completeness requirement examples for output [L.0].}
+    \label{tab:L0_completeness}
+\end{table}
+
+Accuracy in this context relates to the parameters defining the performance of the swarm systems primary function. For example, what constitutes a delivery in a logistics scenario, or under what conditions would an area be considered explored in a surveying mission. Table \ref{tab:L0_accuracy} shows some data requirement examples relating to accuracy.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{1cm} p{6cm}}
+        \textbf{ID} & \textbf{Example} \\
+        \hline
+        RQ 7.1 & All boxes shall only be considered ‘delivered’, if all four of the boxes’ feet are positioned within the delivery zone.\\
+        \hline
+        RQ 7.2 & All boxes shall only be considered ‘delivered’, once they are no longer in direct contact with a swarm agent.\\
+    \end{tabular}
+    \caption{Accuracy requirement examples for output [L.0].}
+    \label{tab:L0_accuracy}
+\end{table}
+
+Balance, outside of a machine learning use case, refers the balance of the trials executed in the testing process of the emergent behaviour algorithm. By considering balance, we expect the number of tests conducted for individual failure modes or environment types to be justified, ensuring that there is not an unrealistic bias in testing towards a particular scenario. Some examples of data requirements relating to balance are listed in \ref{tab:L0_balance}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{1cm} p{6cm}}
+        \textbf{ID} & \textbf{Example} \\
+        \hline
+        RQ 8.1 & All simulations shall be repeated so as to obtain representative evaluations for each possible mode of failure (defined under performance, adaptability and human-safety requirements in Stage 2).\\
+        \hline
+        RQ 8.2 & All simulations shall be repeated equally across all test environments.\\
+        \hline
+    \end{tabular}
+    \caption{Balance requirement examples for output [L.0].}
+    \label{tab:L0_balance}
+\end{table}
+
+%In Table \ref{tab:L0} we list each of the requirement focuses considered in this output and provide respective examples of swarm data requirements.
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{p{2cm} p{6cm}}
+%         \textbf{Requirement} & \textbf{Example} \\
+%         \hline
+%         Relevance & All simulations shall include environments with different ranges of incline between 0-20\textdegree.\\
+%         \hline
+%         & All simulations shall be conducted in a dry environment.\\
+%         \hline
+%         & All simulations shall include floors with step increases that are \leq 0.5 cm.\\
+%         \hline
+%         Completeness & All simulations shall be repeated to include fault injections representative of full communication faults.\\
+%         \hline
+%         & All simulations shall be repeated a sufficient number of times to ensure results are representative of typical use.\\
+%         \hline
+%         & All simulations shall be repeated in multiple environments representative of those expected in real-world use of the system.\\
+%         \hline
+%         & All simulations shall include sufficient range of robot density levels within the scope of the operational domain.\\
+%         \hline
+%         Accuracy & All boxes shall only be considered ‘delivered’, if all four of the boxes’ feet are positioned within the delivery zone.\\
+%         \hline
+%         & All boxes shall only be considered ‘delivered’, once they are no longer in direct contact with a swarm agent.\\
+%         \hline
+%         Balance & All simulations shall be repeated equally across all test environments.\\
+%         \hline
+%         & All simulations shall be repeated equally across all test environments.\\
+%     \end{tabular}
+%     \caption{Requirement focuses for output [L.0] with representative examples from the cloakroom use case.}
+%     \label{tab:L0}
+% \end{table}
 
 \paragraph*{[L.1] Data Availability Constraints}
 
@@ -411,7 +470,9 @@ The performance metrics specified in this activity are used to quantify how well
 
 \paragraph*{[P] Verification Metric}
 
-These metrics should be derived from the safety requirements [H] specified in Stage 2. These metrics are intended to be used as the criteria for success within the verification process. Examples of these metrics might include: the swarm density, maximum collision force experienced by agents, or the average speed of all agents at a given time.
+These metrics should be derived from the safety requirements [H] specified in Stage 2. These metrics are intended to be used as the criteria for success within the verification process. Examples of these metrics and their related safety requirements might include: Swarm density, used in verifying environmental safety specifications such as RQ 4.1, maximum collision force experienced by agents, which could be used to verify that the swarm meets safety performance requirements such as RQ 1.1 and RQ 1.2, or current speed of all agents, a metric relating directly to the human safety requirements RQ 3.1 and RQ 3.2.
+
+%the swarm density (used to monitor environmental specification), maximum collision force experienced by agents, or the speed of all agents at a given time.
 
 \paragraph*{[Q] Sensing and Metric Assumptions Log}
 

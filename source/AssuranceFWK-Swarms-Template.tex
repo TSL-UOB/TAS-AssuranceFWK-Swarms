@@ -347,11 +347,28 @@ In Table \ref{tab:L0} we list each of the requirement focuses considered in this
         \textbf{Requirement} & \textbf{Example} \\
         \hline
         Relevance & All simulations shall include environments with different ranges of incline between 0-20\textdegree.\\
+        \hline
+        & All simulations shall be conducted in a dry environment.\\
+        \hline
+        & All simulations shall include floors with step increases that are \leq 0.5 cm.\\
+        \hline
         Completeness & All simulations shall be repeated to include fault injections representative of full communication faults.\\
+        \hline
+        & All simulations shall be repeated a sufficient number of times to ensure results are representative of typical use.\\
+        \hline
+        & All simulations shall be repeated in multiple environments representative of those expected in real-world use of the system.\\
+        \hline
+        & All simulations shall include sufficient range of robot density levels within the scope of the operational domain.\\
+        \hline
         Accuracy & All boxes shall only be considered ‘delivered’, if all four of the boxes’ feet are positioned within the delivery zone.\\
+        \hline
+        & All boxes shall only be considered ‘delivered’, once they are no longer in direct contact with a swarm agent.\\
+        \hline
         Balance & All simulations shall be repeated equally across all test environments.\\
+        \hline
+        & All simulations shall be repeated equally across all test environments.\\
     \end{tabular}
-    \caption{Caption}
+    \caption{Requirement focuses for output [L.0] with representative examples from the cloakroom use case.}
     \label{tab:L0}
 \end{table}
 
@@ -365,11 +382,14 @@ With the introduction of multiple agents comes the issue of data availability. D
          \textbf{Constraint Type} & \textbf{Example}  \\
          \hline
          Storage capacity & The swarm agents shall have a maximum of 2 GB of information stored on board at any point in time. \\
+         \hline
          Available sensors & The swarm agents shall only have access to environmental data deemed feasibly collectable by infrared sensors positioned radially every 30 degrees. \\
+         \hline
          Communications Range & The swarm agents shall only have access to other agent data when within communications range of 5 meters. \\
+         \hline
          Operator feedback & The swarm agents shall only share information with non-agent’s (e.g. operator terminal) when within communications range of 5 meters.
     \end{tabular}
-    \caption{Caption}
+    \caption{Swarm data constraints for output [L.1] with representative examples from the cloakroom use case.}
     \label{tab:constraints}
 \end{table}
 

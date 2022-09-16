@@ -498,6 +498,78 @@ See Fig.~\ref{amlas-a-stage4}
 \noindent \textbf{\textit{[Lead:  WP4]}}\\ 
 \noindent\textbf{\textit{Author Guidelines: 900–1800 words / 1–2 pages (maximum); \\Format/structure: Describe adapted AMLAS activities, inputs and outputs using cloakroom case study examples. Activities: 13; Inputs: H, P, V; Outputs: Z, AA}}\\
 See Fig.~\ref{amlas-a-stage5} and Fig.~\ref{amlas-a-testbench}.	
+
+% *****************
+% GC Contribution, see table for qualities on 'swarm' tab here:
+% https://uob.sharepoint.com/:x:/r/teams/grp-TAS_Research2/Shared%20Documents/Verification/presentations/TrustQualities.xlsx?d=w4527b0bf0f4e49ab905d638dcb8c14ff&csf=1&web=1&e=8RW2vb
+
+Inputs to the verification process are the [H] EB Safety Requirements, [P] Verification Scenarios (Test Generation) and [V] EB Algorithm. 
+%
+The verification method and assessment process within that method will largely be determined by the specifics of the safety requirement. A few examples from the specification will be used to illustrate the process. Some safety specifications lend themselves towards certain assessment methods due to the scenarios they prescribe.
+%
+For example, assessing the swarm system meets the requirements for performance given a motor fault injection [RQ1.6] may be easier to realise in physical or simulation based testing approaches, than constructing a reliable formal model of robot behaviour given the complex physical dynamics of completing the swarm objective with a faulty wheel. 
+%
+However, when considering the adaptability requirements, a formal, probabilistic-based verification technique of the EB algorithm [V] is more suitable. For example, in [RQ2.1] analysis using a probabilistic finite state machine [ref radu] of the swarm behaviour tree, could identify the dwell period within certain states. Monitors could be used to observe when agents enter a stationary state, e.g. \texttt{agent\_velocity=0 $\land $  t\_counter  $\ge$ 100}, and identify if time within that state exceeded some fixed value, and ascertain a probabilistic value to this metric.
+%
+These examples will now be expanded in more detail below.
+
+
+
+\subsubsection{Verification Scenario}
+
+In most cases there will be multiple, valid verification methods applicable for each of the safety specifications. A summary of a few examples from [H] EB SafetyRequirements specification and potential verification methods are explored in Table~\ref{tab:testgen}. 
+%
+A question then may be which of the methods is more valid, which is an argument that aligns closely to that of test case selection. A good test case [ref graham] must be:...
+
+
+\begin{table*}[t]
+\caption{Verification scenarios [P] and suitable methods.}\label{tab:testgen}
+\centering
+\begin{tabular}{llll}
+
+\textbf{RQ}  & \textbf{Verification}  & \textbf{Verification} & \textbf{Scenario} \\ 
+             & \textbf{Class}  	      & \textbf{Method}		  & 		          \\ 
+\hline
+1.1 		  & simulation 	   & constrained randomisation, directed tests & path intersection     \\
+low impact    & physical testing & prescriptive trial 				       & path intersection	 \\
+collisions    & runtime		   & collision monitoring metric 		       & operational		 \\
+\hline
+2.2 & formal 	 	   & probabilistic finite state machine 	   & n/a      \\
+	& simulation 	   & constrained randomisation, directed tests & task representative     \\
+    & runtime		   & stationary monitoring metric 			   & operational		 \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\noindent\textbf{Verification of RQ1.1}
+
+Discuss swarm testbench...
+Include agent-based test gen paper...
+Option of 2D or 3D simulators...
+Various methods within the verification class of simulation
+Random, constrained random...
+Assertion-based verification using simulation...
+Simulation only needs to be "good enough" relative to the metric concerned [koopman]...
+
+Physical testing offers the opportunity to measure ground-truth..
+Resolves the reality-gap to simulation...
+Physical tends to take longer, cost more to acquire data...
+
+Runtime verification can offer a solution to verifying systems that operate in large state-spaces that may be intractable to verify at design time. However, the choice or design of runtime oracle [ref] which provides the ground truth may require significant development, or innovative solutions [cyres paper]. However, in this swarm case study this may be achieved with collision detection monitors, either implemented within the swarm robots or externally monitored through a tracking system, e.g. Vicon. Tracking with an external systems may be less reliable that physical sensing, e.g. accelerometer based collision detection, but being an independent system offers other assurances, as collisions may instigate cascading failure where the agents fail to report the collision event due to other failures, e.g. network connectivity.
+
+
+\noindent\textbf{Verification of RQ2.2}
+
+
+
+
+
+\subsubsection{Verifiability}
+
+
+
+
 \begin{itemize}
 	\item Test bench for swarms
 	\item Probabilistic verification ideas

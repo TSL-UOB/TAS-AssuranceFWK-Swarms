@@ -11,6 +11,8 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{cite}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
 \hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
 
 \begin{document}
@@ -170,7 +172,7 @@ The output of this activity is the safety requirements that are allocated to the
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/amlas-a-stage1-v2.png}
-	\caption{Adapted AMLAS emergent behaviour assurance scoping process.}
+	\caption{Stage 1: Adapted AMLAS emergent behaviour assurance scoping process.}
 	\label{amlas-a-stage1}
 \end{figure}
 \\
@@ -241,12 +243,13 @@ The argument pattern relating to this stage is shown in Fig.~\ref{stage1-ap}.
 \noindent WP3 = (List of Socio-Technical/Regulatory Requirements and Description: 1800 words / 2 pages maximum)]
 }}\\
 
-\section{wp3}
-\ Sociotechnical Requirements Analysis for Autonomous Robotic Swarms
-
-The focus of much work to date on the design of autonomous systems and specification techniques to assure safety in these systems has primarily been on developing technical aspects of assurance \cite{brundage2020toward}. However, despite significant investments and efforts, getting technical safety assurance right has proved to be a challenging task (see, for instance, Karvonen et al., 2020; Thieme et al., 2021; Hernandez et al., 2021). The causes for problems are complex and varied and remain poorly understood. Simplistic claims that technical assurance will reduce risk to technological performance ignores the inherently sociotechnical nature of autonomous and intelligent systems: the fact that “all technologies are designed, developed, built, deployed, maintained, supervised, operated, and governed by people; and those people necessarily work within, and are shaped by, complex social, cultural, and organisational processes” makes assurance extremely complex (Macrae, 2021: 3; Pettersen Could, 2021; Reason, 1997). 
-
-
+See Fig.~\ref{amlas-a-stage2}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/amlas-a-stage2-v2.png}
+	\caption{Stage 2: Adapted AMLAS emergent behaviour safety requirements assurance process.}
+	\label{amlas-a-stage2}
+\end{figure}
 
 \newpage
 \noindent \textbf{Stage 2 Requirements (Input H)}\\
@@ -380,13 +383,44 @@ The focus of much work to date on the design of autonomous systems and specifica
 
 
 
-See Fig.~\ref{amlas-a-stage2}
-\begin{figure*}
+\newpage
+\begin{table*}[!t]
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/amlas-a-stage2.png}
-	\caption{Adapted AMLAS emergent behaviour safety requirements assurance process (right).}
-	\label{amlas-a-stage2}
-\end{figure*}
+	\begin{tabular}{|l| l| l| l| l| l|} %{|*{18}{c|}}  % repeats {c|} 18 times 
+		\hline
+		\multicolumn{6}{|p{15cm}|}{\textbf{System: Cloakroom System} \newline \textbf{Specifier: Safety Engineer} \newline \textbf{Date: 03 October 2022} \newline The cloakroom system requires a high degree of transparency for the trained workers, but with less transparency for the customers, due to concerns of criminals exploiting it.} \\ \hline
+		\multirow{2}{11cm}{\textbf{IEEE Std 7001-2021 subclause \newline (C = cumulative, NC = non cumulative)}} & \multicolumn{5}{c|}{\textbf{Levels}} \\ \cline{2-6}
+		& 1 & 2 & 3 & 4 & 5 \\ \hline
+		5.1.1 Users (NC) & $X^*$ & $X^*$ & & & \\ & $X^{**}$ & $X^{**}$ & $X^{**}$ & & \\ \hline
+		\multicolumn{6}{|p{15cm}|}{Note- Two categories of users are defined as follows: \newline
+			* \textit{Customers} who are non-expert users.\newline %Transparency is comparatively more important to this category compared to trained staff.
+			** \textit{Trained staff} are expert or super users of the cloakroom. These can be deployers and administrators of the swarm, such as site managers. They require a medium level of understanding of how the swarm works, including the ability to ask an agent to explain its decisions, to predict the system's behaviour in a given situation and repair simple faults of agents.} \\  \hline
+		5.1.2 General public and bystanders (NC) & X & X & & & \\ \hline
+		\multicolumn{6}{|p{15cm}|}{NOTE—The individual robots in the swarm are clearly identified as robots, with warnings; they are fitted with cameras for navigation, with limited views so that they do not collect personal data. This group is only indirectly affected by the system. }\\ \hline
+		5.2.1 Validation and certification agencies (C) & X & X & & & \\ \hline
+		\multicolumn{6}{|p{15cm}|}{NOTE—Evidence of validation and certification to a lower degree is sufficient such as equipped with a data-logging system, given the less-sensitivity of the system.}\\ \hline
+		5.2.2 Incident investigators (C) & X & X & & & \\ \hline
+		\multicolumn{6}{|p{15cm}|}{NOTE—The cloakroom system must log all events securely to support incident investigations, noting that incident investigation may be triggered by a customer, or a watchdog raising concerns about the functions of the swarm. The agents in the swarm are equipped with a data logging system that records high level decisions (no personal data will be recorded). Levels 3--5 are not considered essential, as the agents in the swarm will only require a limited number of behaviours (with no learning).  }\\ \hline
+		5.2.3 Expert advisors in administrative actions or litigation (NC) & X & & & & \\ \hline
+		\multicolumn{6}{|p{15cm}|}{NOTE—The company should take into account ISO 9001 accreditation or equivalent for the swarm.}\\ \hline
+	\end{tabular}
+    \caption{\label{tab:transparency}System transparency specification for the cloakroom (draft).}
+\end{table*}
+
+\subsubsection{System Transparency Specification for the Cloakroom (DRAFT –– 03 Oct 2022)}
+In this section, we show how IEEE P7001 standard can be applied to specify transparency requirements for the Cloakroom prior to its implementation, which is known as a process of \textit{System Transparency Specification} (STS) \cite{IEEE-P7001}. IEEE P7001 describes a set of normative requirements on transparency and explainability, which must be satisfied to be labelled as compliant. % cite both
+
+
+%\paragraph{System Transparency Specification for the Cloakroom}
+A company that organizes bespoke events with 50 to 10000 attendees is looking to automate their cloakroom by deploying a swarm of robots to assist attendees (customers) to deposit, store and deliver their belongings (e.g. jackets) \cite{Jones2020}. % cloakroom paper 
+%Mindful of the safety, operational and regulatory requirements of the healthcare sector
+The system must prioritize public safety, and the company decides to use this standard on transparency as a draft specification for their engineers to more transparently communicate the decision-making processes of their automated cloakroom. %swarm system. 
+The score sheet summarizing the outcomes of the assessment is shown in Table~\ref{tab:transparency}. \\
+
+\subsubsection{wp3}
+\ Sociotechnical Requirements Analysis for Autonomous Robotic Swarms
+
+The focus of much work to date on the design of autonomous systems and specification techniques to assure safety in these systems has primarily been on developing technical aspects of assurance \cite{brundage2020toward}. However, despite significant investments and efforts, getting technical safety assurance right has proved to be a challenging task (see, for instance, Karvonen et al., 2020; Thieme et al., 2021; Hernandez et al., 2021). The causes for problems are complex and varied and remain poorly understood. Simplistic claims that technical assurance will reduce risk to technological performance ignores the inherently sociotechnical nature of autonomous and intelligent systems: the fact that “all technologies are designed, developed, built, deployed, maintained, supervised, operated, and governed by people; and those people necessarily work within, and are shaped by, complex social, cultural, and organisational processes” makes assurance extremely complex (Macrae, 2021: 3; Pettersen Could, 2021; Reason, 1997). 
 
 \subsection{Stage 3: Data Management} \label{framework-stage3}
 % \noindent \textbf{\textit{[Lead:  WP5]}}\\ 

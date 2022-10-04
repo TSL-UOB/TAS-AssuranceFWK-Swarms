@@ -620,7 +620,7 @@ In the design of an emergent behaviour algorithm, the challenge is in selecting 
 
 \subsubsection*{Activity 10. Create EB Algorithm:}
 
-Here we have two levels to consider: the individual level behaviour which is informed by individual agent sensing capabilities [N*] and the swarm level emergent behaviour which shall necessarily meet the safety requirements [H] defined in Stage 2. In the example of the cloakroom \ref{ex:cloakroom}, the target emergent behaviour for the swarm shall ensure that items are stored and retrieved by individuals. Performance requirements RQ1.1 and RQ1.2 specify an upper bound on the low/high impact collisions that a swarm shall experience in a given time frame. These requirements may be fulfilled by constraining the maximum velocity of individual robots, for example, or by ensuring that a robot has camera or infra-red sensors which enable it to detect obstacles. The outputs from this activity follow the AMLAS framework, with a candidate emergent behaviour algorithm produced rather than a ML model. Output [U], the model development log, should log the rationale in the design process of the emergent behaviour algorithm.
+Here we have two levels to consider: the individual level behaviour which is informed by individual agent sensing capabilities [N*] and the swarm level emergent behaviour which shall necessarily meet the safety requirements [H] defined in Stage 2. In the example of the cloakroom given in Section \ref{ex:cloakroom}, the target emergent behaviour for the swarm shall ensure that items are stored and retrieved by individuals. Performance requirements RQ1.1 and RQ1.2 specify an upper bound on the low/high impact collisions that a swarm shall experience in a given time frame. These requirements may be fulfilled by constraining the maximum velocity of individual robots, for example, or by ensuring that a robot has a camera or infra-red sensors which enable it to detect obstacles. The outputs from this activity follow the AMLAS framework, with a candidate emergent behaviour algorithm produced rather than a ML model. Output [U], the model development log, should log the rationale in the design process of the emergent behaviour algorithm.
 
 \subsubsection*{Activity 11. Test EB Algorithm:}
 
@@ -644,8 +644,6 @@ For example, assessing the swarm system meets the requirements for performance g
 However, when considering the adaptability requirements, a formal, probabilistic-based verification technique of the EB algorithm [V] is more suitable. For example, in [RQ2.1] analysis using a probabilistic finite state machine [ref radu] of the swarm behaviour tree, could identify the dwell period within certain states. Monitors could be used to observe when agents enter a stationary state, e.g. \texttt{agent\_velocity=0 $\land $  t\_counter  $\ge$ 100}, and identify if time within that state exceeded some fixed value, and ascertain a probabilistic value to this metric.
 %
 These examples will now be expanded in more detail below.
-
-
 
 \subsubsection{Verification Scenario}
 
@@ -737,21 +735,29 @@ See Fig.~\ref{amlas-a-stage6}
 
 \subsubsection*{Activity 15. Integrate EB}
 
-\textcolor{red}{With the emergent behaviour verified, the next step is to take the model [V] as well as the system safety requirements [V], environment description [B] and system description [C] and integrate the emergent behaviour with the system to be deployed. In this activity we use the inputs to this stage to educate the implementation of the emergent behaviour and anticipate errors we might expect in the interactions between agents and the overall emergent behaviour. Despite the rigorous validation and testing conducted in previous stages, there will still be a gap between the test environment and the intended, every day use, deployed scenario. The output, [DD] Model Development Log, captures these anticipated gaps between testing and reality and the differences in behaviour that might sprout from them.}
+With the emergent behaviour verified, the next step is to take the model [V] as well as the system safety requirements [V], environment description [B] and system description [C] and integrate the emergent behaviour with the system to be deployed. In this activity we use the inputs to this stage to educate the implementation of the emergent behaviour and anticipate errors we might expect in the interactions between agents and the overall emergent behaviour. Despite the rigorous validation and testing conducted in previous stages, there will still be a gap between the test environment and the intended, every day use, deployed scenario. The output, [DD] Model Development Log, captures these anticipated gaps between testing and reality and the differences in behaviour that might sprout from them.
 
-\textcolor{red}{For example, once physically deployed it may become apparent that large fluctuations in speed used to maintain performance while keeping the system safe for Humans, may in reality be too much of a draw on the agents batteries to get a reasonable lifetime out of each battery charge. To address this the behaviour may need to be tweaked to sacrifice some performance in the short term, reducing the rates of acceleration experienced by agents, in order to gain a longer battery life.}
+For example, once physically deployed it may become apparent that large fluctuations in speed used to maintain performance while keeping the system safe for Humans, may in reality be too much of a draw on the agents batteries to get a reasonable lifetime out of each battery charge. To address this the behaviour may need to be tweaked to sacrifice some performance in the short term, reducing the rates of acceleration experienced by agents, in order to gain a longer battery life.
 
 \subsubsection*{Activity 16. Test the Integration}
 
-Description
+Once the initial integration is complete the physical implementation should undergo an additional round of testing in which the system will be observed in multiple operational scenarios, as specified in [EE].
 
 \paragraph*{[EE] Operational Scenarios}
 
-\textcolor{red}{Discuss this, should it feed in from [B] the environment description? How does it differ from [B]?}
+These operational scenarios should reflect the environment descriptions specified in [B], offering a real-world situations to examine the behaviour of the integrated system. The testing of the integrated system in these true-to-operation environments should be conducted in a safe manner. Ensuring that the entire multi-agent system can be shut down in an emergency, or providing shadow operators for groups of agents, taking over should the swarm behave erroneously.
+
+In our cloakroom scenario, an example of [EE] may take the form of a small deployment of agents in a real but controlled coat storage area.
+
+% Capture any integration issues
+
+% provide a few environment examples
+
+% Identify Erroneous behaviour expected and outlined in [DD], while simultaniously looking to catch/identify any issues of integration previously overlooked.
 
 \paragraph*{[FF] Integration Testing Results}
 
-
+Results from the integration testing will be reported here, detailing how the system performs against the safety requirements [H] specified in stage 2.
 
 %\subsection{Stage 7: Assurance Case}
 	

@@ -155,8 +155,8 @@ In this study, we look at inherent swarm qualities and the adaptation that aris
 In a swarm, individual robots execute simple behaviours or algorithms, and these simple behaviours when performed by a large number of agents build to form \emph{emergent behaviours} (EB). 
 %These simple behaviours performed by large numbers of agents build to emergent behaviours.
 %For this, we will look into developing individual behaviours which when combined create an adaptive emergence. 
-The adaptivity provided by this emergence requires us to provide for \textit{assurance} (e.g. safety assurance). 
-At present, our study does not consider AMLAS adaptation to individual robots using machine learning, which we will consider as part of future work once AMLAS has been applied to the swarm.
+The adaptivity provided by this emergence requires us to provide \textit{assurance} (e.g. safety assurance). 
+At present, our study does not consider machine learning components of individual agents. Instead, these will be considered as part of future work once AMLAS has been applied to the swarm.
 %However, we may consider this later once AMLAS has been applied to the swarm.
 
 The adapted Stage 1 contains two activities which are performed to define the safety assurance scope for the swarm (see Fig.~\ref{amlas-a-stage1}).  
@@ -164,7 +164,7 @@ As part of activity 2, the artefacts generated from Stage 1 are used to instanti
 
 \noindent \textbf{Activity 1: Define the safety assurance scope for the EB description and expected output}
 
-The required inputs to Stage 1 are the system safety requirements ([A]), the operating environment [B],  the system description [C], and a description of the EB and expected output ([D]). 
+The required inputs to Stage 1 are the system safety requirements ([A]), the operating environment [B], the system description [C], and a description of the EB and expected output ([D]). 
 Inputs A, B, C and D will be used to determine the safety requirements which are allocated to the swarm. 
 The requirements defined in Stage 1 are independent of any EB technique or metric.
 Instead, these requirements reflect the need for the swarm to perform safely with the system regardless of the deployed technology. 
@@ -178,13 +178,15 @@ The output of this activity is the safety requirements that are allocated to the
 \\
 
 \noindent \textbf{Artefact A -- System safety requirements: }
-The system safety assessment process generates the safety requirements of the swarm, which covers identification of hazards and performing of a risk analysis. 
-As illustrated in Fig.~\ref{failure-events}, this can be shown in the form of concrete failure conditions that the output of an individual robot or a robot in the neighbourhood makes to potential swarm-level hazards. 
-Although this has been illustrated as a simplified linear chain of events, in reality this can contain more complex chain of events. 
+The system safety assessment process generates the safety requirements of the swarm, which covers identification of hazards and risk analysis. 
+As illustrated in Fig.~\ref{failure-events}, this can be shown in the form of concrete failure conditions from an individual robot propagating through the swarm neighbourhood, resulting in swarm-level hazards. 
+Although this has been illustrated as a simplified linear chain of events, in reality this represents a complex sequence which can be difficult to distil into distinct events and cause.
 
 With respect to hazard identification and risk analysis performed in our study, in the \textit{cloakroom} use case, a key hazard is the blocking of critical paths. 
 This can result in humans or other agents in the swarm unable to travel to urgent locations in a safe manner. 
-In the \textit{monitoring fires in a natural environment} use case, a key hazard is critical faults not being detected correctly. This can result in swarm operating with critically faulty agents where unsafe behaviours may emerge. Another hazard is when faults can be misdiagnosed, for example, a minor fault can be diagnosed as a critical fault (e.g. a minor reduction of the wheel speed labelled as full motor failure). This can result in key agents being removed from the swarm and the swarm not being able to perform its tasks effectively.\\ 
+
+In the \textit{monitoring fires in a natural environment} use case, a considerable hazard can be presented should a critical fault go undetected. This can result in swarm operating with critically faulty agents resulting in the emergence of unsafe behaviour. The labelling of faults does, however, require caution and a level of trade off. Should a fault be misdiagnosed, for example, a minor fault being labelled as a critical fault (e.g. a minor reduction of the wheel speed labelled as full motor failure). The system or user may end up removing key agents from the swarm, resulting in significant loss of performance and efficacy in the swarms task.\\ 
+
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/stage1-failureevents.png}
@@ -202,13 +204,16 @@ Based on the different use cases considered in our study, we can provide a descr
 \end{itemize}
 
 \noindent \textbf{Artefact C -- System description: }
-In the architecture, \textit{sensors} available to agents can be: cameras (multiple), Bluetooth communication devices, and light detection and ranging systems (see Fig.~\ref{system-description}). 
-At the neighbourhood level, we can consider a Bluetooth system to ensure data available to agents are within a communication distance (e.g. 5m). 
-This can result in several neighbourhood data, such as: the approximate position, current status, picking and dropping of correct boxes and deployed time. 
-As for swarm parameters to ensure the overall swarm qualities, we can consider: the number of agents, the maximum speed of an agent, and the number of agents allowed to be active at a time. 
-Once we have these three inputs, i.e. agent sensors, neighbourhood data and swan parameters, they are fed into the agent behaviour itself.
-The agent behaviour is then multiplied by the number of agents in the swarm. 
-Then emergent behaviour can be produced by way of the social interaction that occurs between the agents.\\
+To describe our logistics use case, we must consider three inputs: sensor availability, neighbourhood data, and swarm parameters. 
+
+In this instance, the \textit{sensors} available to agents might be: cameras (multiple), Bluetooth communication devices, and light detection and ranging systems (see Fig.~\ref{system-description}). 
+
+The neighbourhood data of the swarm can be specified through the communication systems available to agents, in this case Bluetooth. Through the use of the short range communication available to them, we can assume agents have access to neighbourhood data such as: the approximate position of local agents, current behaviour statuses, an approximate history of box movement, and the amount of time deployed. 
+
+As for the swarm level parameters, we can consider options specified by a user i.e. the number of agents deployed, the maximum speed of agents, and the number of agents allowed to be active at a time.
+
+Once we have defined these three inputs they are fed to the individual agents to instruct their behaviour. This behaviour, once enacted by the multiple agents, produces a swarm level emergence as the individuals interact with one another and their environment.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/stage1-systema.png}
@@ -218,10 +223,11 @@ Then emergent behaviour can be produced by way of the social interaction that oc
 
 \noindent \textbf{Artefact D -- EB description and expected output: }
 %This artefact describes the role and scope of the component within the system of which it is part, and the interfaces to which it is exposed.
-By expected output here we mean the gains (output) that can arise from multiple agents.
+By expected output here, we mean the gains that can arise from the system by deploying multiple agents.
 %Let us consider the type and configuration of the emergent behaviour. 
-The output is a collaborative system capable of collecting, sorting and redelivering jackets in a public setting. 
-With respect to constraints, the emergent behaviour of the system needs to be manually engineered by a swarm engineer through the use of behavior trees and available sub-behaviours within an agent.\\
+For our logistics use case, the output is a collaborative system capable of collecting, sorting and redelivering jackets in a public setting. 
+
+To achieved this output, the emergent behaviour of the system needs to be manually engineered by a swarm engineer with consideration to the available sub-behaviours within an agent and the constraints outlined in the system description.\\
 %
 
 \noindent \textbf{Activity 2: Instantiate the EB assurance scoping argument pattern}

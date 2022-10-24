@@ -151,11 +151,11 @@ The process is iterative by design and feedback is used to update previous stage
 %\end{figure*}
 
 \subsection{Stage 1: EB Safety Assurance Scoping} \label{framework-stage1}
-In this study, we look at inherent swarm qualities and the adaptation that arise from these qualities. 
+In this study, we look at inherent swarm qualities and the adaptation that arises from these qualities. 
 In a swarm, individual robots execute simple behaviours or algorithms, and these simple behaviours when performed by a large number of agents build to form \emph{emergent behaviours} (EB). 
 %These simple behaviours performed by large numbers of agents build to emergent behaviours.
 %For this, we will look into developing individual behaviours which when combined create an adaptive emergence. 
-The adaptivity provided by this emergence requires us to provide for \textit{assurance} in safety. 
+The adaptivity provided by this emergence requires us to provide for \textit{assurance} (e.g. safety assurance). 
 At present, our study does not consider AMLAS adaptation to individual robots using machine learning, which we will consider as part of future work once AMLAS has been applied to the swarm.
 %However, we may consider this later once AMLAS has been applied to the swarm.
 
@@ -184,7 +184,7 @@ Although this has been illustrated as a simplified linear chain of events, in re
 
 With respect to hazard identification and risk analysis performed in our study, in the \textit{cloakroom} use case, a key hazard is the blocking of critical paths. 
 This can result in humans or other agents in the swarm unable to travel to urgent locations in a safe manner. 
-In the \textit{monitoring fires in a natural environment} use case, a key hazard is critical faults not being detected correctly. This can result in swarm operating with critically faulty agents where unsafe behaviours may emerge. Another hazard is when faults can be misdiagnosed, for example, a minor fault can be diagnosed as a critical fault (e.g. a minor reduction of the wheel speed labelled as full motor failure). This can result in key agents being removed from the swarm and it not being able to perform its tasks effectively.\\ 
+In the \textit{monitoring fires in a natural environment} use case, a key hazard is critical faults not being detected correctly. This can result in swarm operating with critically faulty agents where unsafe behaviours may emerge. Another hazard is when faults can be misdiagnosed, for example, a minor fault can be diagnosed as a critical fault (e.g. a minor reduction of the wheel speed labelled as full motor failure). This can result in key agents being removed from the swarm and the swarm not being able to perform its tasks effectively.\\ 
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/stage1-failureevents.png}
@@ -196,7 +196,7 @@ In the \textit{monitoring fires in a natural environment} use case, a key hazard
 As in AMLAS guidance, when allocating safety requirements to the swarm, it is essential to consider the system environment, which is represented by Artefact B. 
 Based on the different use cases considered in our study, we can provide a description of their environments as follows.
 \begin{itemize}
-	\item \textit{A swarm of robotic agents collecting and delivering jackets, stored in small box-like containers within a cloakroom}. Agents are required to navigate a public space between collection and delivery points of jackets. Agents use local communication, perception, and data to form an emergent system of navigation that allows them to easily traverse the public space between their jacket collection and delivery points.
+	\item \textit{A swarm of robotic agents collecting and delivering jackets, stored in small box-like containers within a cloakroom}. Agents are required to navigate a public space between collection and delivery points of jackets. Agents use local communication, perception, and data to form an emergent system of navigation that allows them to easily traverse the public space between jacket collection and delivery points.
 	\item \textit{A swarm of UAVs monitoring wildfire risks in a natural environment}. Here, agents will be required to stay within communication range of each other, effectively covering the search area and accurately detecting risks of fire.
 	\item \textit{Social swarm – brainstorming at an event}. Humans input their opinions on agents which then cluster based on the input. [Humans follow the agent they interacted with and user groups emerge in the process.]\\
 \end{itemize}
@@ -204,10 +204,10 @@ Based on the different use cases considered in our study, we can provide a descr
 \noindent \textbf{Artefact C -- System description: }
 In the architecture, \textit{sensors} available to agents can be: cameras (multiple), Bluetooth communication devices, and light detection and ranging systems (see Fig.~\ref{system-description}). 
 At the neighbourhood level, we can consider a Bluetooth system to ensure data available to agents are within a communication distance (e.g. 5m). 
-Thus, it can result in several neighbourhood data, such as: the approximate position, current status, picking and dropping of correct boxes and deployed time. 
+This can result in several neighbourhood data, such as: the approximate position, current status, picking and dropping of correct boxes and deployed time. 
 As for swarm parameters to ensure the overall swarm qualities, we can consider: the number of agents, the maximum speed of an agent, and the number of agents allowed to be active at a time. 
 Once we have these three inputs, i.e. agent sensors, neighbourhood data and swan parameters, they are fed into the agent behaviour itself.
-The agent behaviour is then multiplied by the number of agents that is in the swarm. 
+The agent behaviour is then multiplied by the number of agents in the swarm. 
 Then emergent behaviour can be produced by way of the social interaction that occurs between the agents.\\
 \begin{figure}
 	\centering

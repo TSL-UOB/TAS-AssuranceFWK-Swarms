@@ -731,11 +731,12 @@ These examples will now be expanded in more detail below.
 
 \subsubsection{Verification Scenario (Test Generation) [P]}
 
-In most cases there will be multiple, valid verification scenarios or tests applicable for each of the safety specifications. A summary of a few examples from [H] EB SafetyRequirements specification and potential verification methods are explored in Table~\ref{tab:testgen}. 
+In most cases there will be multiple, valid verification scenarios, also called test cases, applicable for each of the safety specifications. A good test case must be \emph{effective} at finding bugs or defects, \emph{efficient} in minimising the number of tests required, use resources \emph{economically} and be \emph{robust} to system changes~\cite{Fewster1999}. A summary of a few examples from [H] EB SafetyRequirements specification and potential verification methods are explored in Table~\ref{tab:testgen}. 
 
-For RQ1.1, relating to low impact collisions, suitable scenarios should consider both simulation and physical testing to observe the safety compliance of the swarm controller. For simulation, where testing time can be accelerated through parallelisation, test generation could include some randomisation and constrained randomisation to look for failures in the collision detection system. Physical testing, usually with tighter time constraints should be more prescriptive with testing and should orchestrate scenarios that have a high probability of exercising the collision detection routine of the swarm controller, for example forcing swarm agents to travel a narrow passage. 
+For RQ1.1, relating to low impact collisions, suitable scenarios should consider a mix of both synthetic and physical testing to observe the safety compliance of the swarm controller. For synthetic, a simulation environment where testing time can be accelerated through parallelisation, test generation could include some randomisation and constrained randomisation to look for failures in the collision detection system. Physical testing, usually with tighter time constraints should be more prescriptive with testing and should orchestrate scenarios that have a high probability of exercising the collision detection routine of the swarm controller, for example forcing swarm agents to travel a narrow passage. 
 
-A question then may be which of the methods is more valid, which is an argument that aligns closely to that of test case selection. A good test case \cite{Fewster1999} must be:...
+% All agents of the swarm \emph{shall} move at least every \textbf{100 seconds} if outside of the \textbf{delivery site}
+For RQ2.2, ensuring agents movement every 100 seconds outside the delivery area, suitable verification metrics will take the form of watchdog timers that count the time agents are ouside a designated geospatial area and wheel speed sensors. Scenarios should be biased towards these conditions by, for example, ensuring a sufficient number of agents outside the delivery area (by making it small or non-existent) and monitoring for sufficiently long horizons. 
 
 
 \begin{table*}[t]

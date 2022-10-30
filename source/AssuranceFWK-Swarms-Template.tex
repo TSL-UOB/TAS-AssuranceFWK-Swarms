@@ -13,6 +13,7 @@
 \usepackage{cite}
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
+\usepackage{lscape} 
 \hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
 
 \begin{document}
@@ -467,6 +468,57 @@ A company that organizes bespoke events with 50 to 10000 attendees is looking to
 The system must prioritize public safety, and the company decides to use this standard on transparency as a draft specification for their engineers to more transparently communicate the decision-making processes of their automated cloakroom. %swarm system. 
 The score sheet summarizing the outcomes of the assessment is shown in Table~\ref{tab:transparency}. \\
 
+\subsubsection{Ethics Requirements}
+Building on \cite{Porter2022}, and adapting it for our purposes, we developed ethics requirements for swarm robots around the ethical principles of beneficence, non-maleficence, respect for autonomy, and justice. We wrote a matrix outlining how each principle applies to each stakeholder (Tables  \ref{tab:beneficence}-\ref{tab:justice} in the appendices). To limit the scope of this paper, we decided to focus on the impact of our case study on members of the public, trained humans, manufacturers, and the company deploying the swarm, hence leaving aside questions about broader societal and environmental implications.
+
+The main ethics requirements, each corresponding to a principle, are shown in Table \ref{tab:ethics} below. 
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|p{9mm}|p{72mm}|}
+		\hline
+		& \textbf{ Ethics Requirements} \\
+		\hline
+		RQ1 & The swarm \textit{shall} provide benefits to stakeholders. \\ 
+		\hline
+		RQ2 & The swarm \textit{shall} avoid causing unjustified harm to stakeholders. \\ 
+		\hline
+		RQ3 & The swarm \textit{shall} avoid undue constraints on stakeholders' personal autonomy. \\
+		\hline
+		RQ4 & The swarm \textit{shall} allow fair treatment of stakeholders.  \\		[1ex] 		
+		\hline
+	\end{tabular}
+	\caption{\label{tab:ethics}Ethics requirements for the cloakroom.}
+\end{table}  
+
+These broad requirements should be further specified, and this is where developing ethics matrices is helpful. The matrices allow us to identify benefits, risks of harm, and threats to autonomy and fair treatment caused by the development and deployment of the system. The significance and likelihood of the identified benefits, harms, and threats should then be considered to decide which can be tolerated and which should be addressed; for the latter, ethics sub-requirements should be developed to make changes to the design of the system, and so ensure the development of a more ethically aligned technology. Deciding which changes to prioritise is the most difficult part of the process, because there is no formulaic approach to follow; rather, this process requires interdisciplinary and multi-stakeholder discussions, individual and collective judgment, and ethics deliberation, which should include consideration of opportunity costs. However, that extends beyond the scope of this paper. Below we only give examples of how the matrices could be used to develop sub-requirements to specify RQ1-4. In line with the core aim of this paper, we only give examples focusing on the swarm's emergent behaviour.
+\\
+\paragraph{Beneficence requirements}
+The principle of beneficence requires consideration of the benefits of the development and deployment of a system, and the stakeholders who will or may enjoy those benefits \cite{Porter2022}. It is contested to what extent the private sector should develop technologies that  benefit end users and other stakeholders, beyond merely avoiding harms (principle of non-maleficence). This is one of the limitations of applying ethical principles that have emerged from the healthcare setting, where professionals are expected to promote patients’ health and wellbeing, to a context where there is no professional duty to promote the interests of end users \cite{mittelstadt2019principles}. However, we believe it is important to consider the benefits a system may produce, and who the beneficiaries are, for three main reasons.
+
+First, this requirement forces developers to reflect on the reasons why they are developing a certain technology in the first place, what societal impact they aim to achieve, and whether these are positive impacts. There is usually some form of benefit associated with technological innovation, and it is unlikely that a marketable system would provide no benefits to stakeholders other than the manufacturers themselves.However, if no  beneficial use of the system can be identified, this should immediately be taken as an indication that manufacturers should reconsider developing the technology, at least in its current form \cite{Qin}. Second, outlining potential benefits is a necessary step to determine whether, ultimately, these benefits will outweigh the potential harms posed by the technology. Third, manufacturers should reflect on who the beneficiaries are in order to assess how benefits and risks of harm are distributed across stakeholders.
+
+Table \ref{tab:beneficence} illustrates the benefits a swarm system may produce in the cloakroom use case. To give one example, companies may benefit from the decentralised nature of the swarm, which is possible because swarm behaviour emerges from interactions across the individual agents. In particular, smaller businesses could benefit financially from the deployment of such a system. While bigger companies have the resources to invest in centralised robotic systems, which require dedicated heavy infrastructures and are designed to be optimised to meet the specific needs of the company, smaller businesses require fast, out-of-the-box setups that can easily adapt to different deployment scenarios. Thanks to their decentralised nature, robot swarms can offer this solution \cite{jones2020distributed}.
+\\
+\paragraph{Non-maleficence requirements}
+The principle of non-maleficence requires consideration of how the development and deployment of a system may harm various stakeholders \cite{Porter2022}. The identification of risks of harm can, in turn, inform the development of design requirements to reduce the chance of harm eventuating. No system will ever be completely risk free, and discussions about what residual risks should be judged “acceptable” raises important ethical and legal questions that fall beyond the scope of this paper \cite{fraser2021residual}.
+
+Table \ref{tab:maleficence} illustrates a wide range of harms that may derive from the development and deployment of a swarm robot in the cloakroom use case. In line with the traditional focus of safety assurance, the technical requirements discussed in this paper address the risks for physical harm; however, we agree with Porter and colleagues about the need to also consider  the non-physical harms machines may bring about \cite{Porter2022}. For example, end users in the cloakroom scenario may experience data privacy harms. This is because their personal data (e.g., names, email addresses, footages from cameras built on the robots) will be stored on the swarm agents and dispersed across agents in a decentralised manner, in the same way that other information is shared within the swarm. A core property of swarm robots is their robustness, which allows the swarm to continue performing its task, even when some of its agents are destroyed or have faults. Thus, it is possible to imagine scenarios in which the swarm would continue to operate even when one agent gets lost or breaks down whilst having a hard drive with people’s personal information onboard, thus posing risk of hard-to-discover data breach. In a small environment like the cloakroom use case that agent could be easily identified and quickly put in a restricted area for human operators to take care of it. However, this scenario would become more concerning if the swarm was deployed, for example, as a parcel delivery system in a university campus. Such a system would need to carry information about students’ names and addresses, as well as pictures of delivered packages, which may include frames with identifiable individuals or students’ doorsteps. In this much bigger, open, and dynamic environment, it is likely more difficult to identify and remove the agent. This example illustrates that a sub-requirement of RQ2 could require that users’ personal data are, by design, safely stored and shared across agents in the system, and safely destroyed in case of faulty agents.  
+\\
+\paragraph{Respect for autonomy requirements}
+The principle of respect for autonomy forces us to consider how a system may interfere with humans’ capacity for self-governance or capacity to act according to their own’s considerations, desires, values, and motivations \cite{beauchamp2019principles}. Following \cite{Porter2022}, we focus on three dimensions of autonomy: (1) stakeholders’ ability to make personal choices, which requires that meaningful options are available to them; (2) informed consent, which requires that stakeholders are sufficiently informed about relevant facts or characteristics of the system; and (3) meaningful control, i.e. humans’ ability to stop or intervene in a system that is malfunctioning, and ensure that it is acting as intended and desired.
+
+Table \ref{tab:autonomy} illustrates the ways in which the development and deployment of a swarm robot in the cloakroom scenario may constrain stakeholders’ autonomy in these three dimensions. For example, the emergent behaviour of the system could interfere with business policies in a way that constrains operators’ options. We could imagine a scenario in which the unpredictability that characterises swarms’ emergent behaviour causes a human operator to violate their company’s health and safety policy that prohibits them to step over a robot or walk in an area where there is high density of agents, in an attempt to avoid personal injury or remove a faulty agent. This suggests RQ3 needs to be further specified to require that business policy and system requirements are consistent with each other.
+
+The condition of informed consent would require end users to be informed about system functioning and capability, potentially including information about the swarm’s emergent behaviour. However, translating this condition into a sub-requirement of RQ3 raises challenging questions about the extent and depth of information that end users need. While transparency is often listed among the principles needed for the adoption of socially beneficial systems \cite{IEEEAligned}, we agree with others that it should not be considered an end in itself \cite{Porter2022}. Increased transparency leads to the desired outcome (in this case, opportunity for informed consent) only if what is made transparent is understandable to end users \cite{ananny2018seeing}. Thus, we should aim for decreased opacity, by providing relevant information to end users, tailored to their level of understanding and the role they play in the use case space, so that system behaviour becomes explainable to non-experts. The IEEE Standards Association has recently published a new standard on transparency of autonomous systems, to which we referred above \cite{IEEETransparency}.
+
+Finally, the autonomy matrix highlights important challenges to attribution of responsibility. Moral responsibility refers to what makes a moral agent praiseworthy or blameworthy for some outcome, and differs from legal responsibility, which usually carries an enforceable obligation to redress the harm caused \cite{burton2020mind}. Moral responsibility usually requires two conditions: knowledge and control \cite{santoni2021four}. A swarm that adapts through emergent behaviour generates a “responsibility gap” \cite{matthias2004responsibility}, i.e. it makes it difficult to attribute responsibility for any harm caused, because the conditions may not be met for developers to give valid consent to system deployment nor to have meaningful control over the system once deployed. Because the emergent behaviour is not explicitly written, developers may not have an understanding of the inner decision-making of the swarm as a whole, and so the swarm’s emergent behaviour may depart from their intentions, leading to unwanted behaviour. To address this gap, a sub-requirement of RQ3 could require that the system uses a human readable controller (e.g., decision trees), which allows humans to explain it, analyse it for insight, and make improvements to system performance, hence conferring some level of understanding and control back to developers \cite{jones2019onboard}. Moreover, developers could be required to use the framework described in this paper to develop system specifications, given that assurance of swarm’s emergent behaviour is the core aim of the present work. 
+\\
+\paragraph{Justice requirements}
+The principle of justice requires us to treat others in a fair, equitable, and appropriate way in light of what is due or owed to them \cite{beauchamp2019principles}. Among the main understandings of the concept, \textit{distributive justice} refers to the equitable and appropriate distribution of benefits and burdens, and so differs from \textit{procedural justice}, which focuses not on the fairness of the final allocation but of the procedures used to determine the allocation. \textit{Corrective justice} aims to rectify the injustice that one person has inflicted over another, and requires the existence of mechanisms for redress to be enacted \cite{sep-justice}. In contrast, \textit{retributive justice} is about inflicting punishment to those who have committed certain kinds of wrongful acts (e.g., negligence) \cite{sep-justice-retributive}. 
+
+In Table \ref{tab:justice}, we used these different understandings to distil the ways in which the development and deployment of the swarm may cause unfair treatment of various stakeholders in the cloakroom use case \cite{Porter2022}. The threat to justice that more clearly relates to swarms’ emergent behaviour concerns the procedure in which objects are deposited and retrieved. For example, a robotic cloakroom may lead to unfair treatment of people who are arguably entitled to retrieve their belongings first based on need, such as people who have deposited their mobility aids together with their jackets. In a cloakroom implementation in which the swarm agents move around the area by performing random walks, which are easy to implement with no centralised control unit \cite{jones2020distributed}, there is no priority order. When an agent finds a box that has been requested, it brings it back, even if it happens that that box was ordered later than another box.
+
+This may be unproblematic in a small cloakroom, where waiting times are usually short. In a bigger area, a sub-requirement for RQ4 could be introduced to establish a priority mechanism for “priority items” like mobility aids. However, care should be exercised in the implementation of this requirement. If agents started to ignore other items until they found and retrieved priority objects, it would likely reduce swarm efficiency. As a minimum, this would require stakeholders to make difficult decisions about how to strike a balance between efficiency and fairness; a significant decrease in system efficiency would end up disadvantaging those whose needs we want to prioritise. A better solution to implement a priority requirement would be to make it more likely that swarm agents carry boxes with priority items and so are ready to deliver them upon user’s request. This could be achieved by leveraging on other properties that a robot swarm needs by design, like reshuffling, where agents are designed with a probability to pick up a box they encounter and move it for a limited time, even if it is not of their interest \cite{milner2022stochastic}. Reshuffling is necessary in use cases like the cloakroom to avoid occluded boxes in the centre of a pile never being found. The probability of picking up and dropping a box may be changed so that agents encountering a priority item are required to carry it around for a little longer, hence increasing the chances that they will have it when that item is requested back. This example illustrates that, even when ethics requirements are clear, judgment still needs to be exercised in how to best implement them in a specific use case.  
 \subsubsection
 \textbf{\textbf{Using the Structural, Organisational, Technological, Epistemic, and Cultural (SOTEC) framework for a sociotechnical requirements analysis of autonomous robotic swarms}}
 \\
@@ -859,9 +911,139 @@ Results from the integration testing will be reported here, detailing how the sy
 The work presented in this paper has been supported by the UK Engineering and Physical Sciences Research Council (EPSRC) under the grant [EP/V026518/1].
 
 {\appendices
-\section*{Appendix A. Supplementary Material}
-The supplementary material associated with this article can be found online at (https://www.).
+\section*{Appendix A. Ethics matrices}
+The content of the following tables has been developed through interdisciplinary discussions between the authors, and is informed by the authors’ preliminary interactions with members of the public and companies who may one day buy and deploy the system. The tables refer to the cloakroom use case unless otherwise specified. 
 
+Please note that, at this early stage, these tables are only suggestive. More comprehensive discussions should be undertaken to ensure that they reflect the views of all stakeholders. Moreover, the tables will require continuous update after system deployment. 
+
+\begin{landscape}
+
+\begin{table}[]
+\begin{tabular}{|p{0.15\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|}
+\hline
+Groups of beneficiaries & Physical benefits & Psychological benefits  & Financial/economic benefits   & Reputational benefits  & Legal benefits \\ \hline
+
+Members of the public  &  & End users may enjoy a faster and more convenient service. 
+
+End users may derive entertainment from interacting with robots. 
+
+End users may become optimistic about or develop positive attitude towards technology. & Automation may allow end users to enjoy receiving the service at reduced cost. &  & End users may benefit from a reduced risk of property theft by human staff. \\ \hline
+
+Trained humans  & The continual availability of agents in the swarm benefits human operators by reducing repetitive strain. & With the swarm system in place operators no longer need to remember where items were left, which in turn reduces the cognitive load of working within the cloakroom environment. & New jobs may become available to human workers as intermediaries between members of the public and robots (human-robot translators). & & 
+ \\ \hline
+
+Manufacturers &  &  & New jobs may become available for robot developers. Manufacturers may enjoy opportunities to develop patents for their technologies. & The quality of the system may be reflected in the manufacturers’ reputation. & Manufacturers may enjoy opportunities to develop patents for their technologies. \\ \hline
+
+Company deploying the swarm &   &  & The company deploying the swarm may benefit financially from opportunities for better worker triage (e.g., investing more in workers for primary business function). The company may benefit from an automated solution without the need for expensive heavy infrastructures, made possible by the decentralized nature of swarms. The company may benefit from long-term financial savings from service automation. & The company deploying the swarm may be considered a technologically advanced company and develop a reputation as a trend setter.& Liability: Legal responsibility for errors in the system that cause harm to humans, property damage or loss may be moved to manufacturers.  \\ \hline
+\end{tabular}
+\caption{\label{tab:beneficence}Beneficence matrix}
+\end{table}
+
+\end{landscape}
+
+\begin{landscape}
+\begin{table}[]
+\begin{tabular}{|p{0.10\textheight}|p{0.07\textheight}|p{0.20\textheight}|p{0.20\textheight}|p{0.20\textheight}|p{0.20\textheight}|p{0.20\textheight}|}
+\hline
+Groups of risk-exposed & Physical harms & Psychological harms & Data privacy harms  & Financial/economic harms   & Reputational harms  & Legal harms \\ \hline
+
+Members of the public  & \textit{Addressed by technical requirements.} & Inexperienced users may experience psychological discomfort (stress) from interacting with a novel (not seen before) and complex (multi agent) system. 
+
+The swarm unpredictable behaviour, due to the volume and decentralized nature of the system, could appear inefficient or untrustworthy to an inexperienced user. & Harms to end users may derive from personal data being collected, processed, and stored through the app. 
+
+Harms may derive from personal data (users’ names, addresses, photos, videos) being stored on the agents and dispersed across agents in a decentralised manner. & Members of the public may experience financial/economic harms if their property is lost or damaged due to the non-explicitly guided (emergent) behaviour of agents. & Loss of property due to the non-explicitly guided (emergent) behaviour of agents may cause reputational harms on members of the public. & Liability (legal responsibility): Members of the public engaging in inappropriate interactions with the system may be considered legally responsible for injuries, accidents, damage or loss of property. \\ \hline
+
+Trained humans  & \textit{Addressed by technical requirements.} & Managed behaviours of swarm agents that appear cohesive to inexperienced user may in fact be less efficient, and so frustrating to trained operators.
+
+Increased cognitive overload from monitoring a multi-agent system, including in scenarios that involve ethically-relevant decisions. & Harms to operators may derive from personal data being collected, processed, and stored through the app.
+
+Harms may derive from personal data (operators’ names, addresses, photos, videos) being stored on the agents and dispersed across agents in a decentralised manner. & Current workers within the use case space may be replaced by robots. & Moral responsibility: Operators may be morally blamed for errors in the system that cause harm to humans, property damage or loss. & Liability (legal responsibility): Errors in the system that cause harm to humans, property damage or loss may be attributed to human operators. \\ \hline
+
+Manufacturers & \textit{Addressed by technical requirements.} &  Manufacturers may experience moral distress, which is defined as “the combination of (1) the experience of a moral event, (2) the experience of ‘psychological distress’ and (3) a direct causal relation between (1) and (2)” \cite{morley2019moral}. Moral distress may derive from  making design decisions to automate functions that would normally require human interpretation and ethical judgment, or from reflecting on the ethical and societal implications of system deployment (e.g., machines replacing humans in the workplace; systems being repurposed to kill targets in military applications). & & Manufacturers may incur in additional costs due to system malfunctioning. & Moral responsibility: Manufacturers may be morally blamed for errors in the system that cause harm to humans, property damage or loss. & Liability (legal responsibility): Errors in the system that cause harm to humans, property damage or loss may be attributed to manufacturers. \\ \hline
+
+Company deploying the swarm & \textit{Addressed by technical requirements.}  &  & & Managed behaviours of swarm agents that appear cohesive to inexperienced users may in fact be less efficient, and so may increase costs for the company deploying the system.
+
+The company deploying the system may experience financial/economic harms if accidents or injury happen or if property is lost or damaged due to the non-explicitly guided (emergent) behaviour of agents. & Moral responsibility: The company deploying the system may be morally blamed for errors in the system that cause harm to humans, property damage or loss. & Liability (legal responsibility): Errors in the system that cause harm to humans, property damage or loss may be attributed to the company deploying the system. \\ \hline 
+\end{tabular}
+\caption{\label{tab:maleficence}Non-maleficence matrix}
+\end{table}
+
+
+\end{landscape}
+
+
+\begin{landscape}
+\begin{table}[]
+\begin{tabular}{|p{0.10\textheight}|p{0.35\textheight}|p{0.35\textheight}|p{0.35\textheight}|}
+\hline
+Groups of autonomy risk-exposed  & Personal choice & Informed consent & Meaningful control \\ \hline
+
+Members of the public  & Constraints on the personal choice of members of the public occur if there is not a human (non-automated) alternative to use the service (ability to opt out).
+
+The emerging behaviour of the swarm could constrain end users’ options to access critical paths (e.g., to travel to urgent location safely). & Members of the public cannot provide valid consent if they are not given information about the system functioning and capabilities, tailored to their level of understanding, including information about the swarm’s emerging behaviour, and about how their personal data will be collected, processed, stored, and shared within the swarm. 
+
+Members of the public cannot give valid consent if the system has properties (e.g., biomimetic features) that deceive them and exploit their trust heuristics. &   Members of the public cannot have meaningful control over the system if they are not adequately trained.
+
+Members of the public cannot have meaningful control over the system if they do not have access to human readable information about the system and scenario at any given time.
+
+Members of the public cannot have meaningful control over the system if they do not have the ability to physically interact with or intervene on the system and scenario at any given time.
+
+Members of the public cannot have meaningful control if they cannot provide contextual awareness to the system when the system lacks/requires it.
+
+In large swarms, due to the volume of the system, members of the public cannot have meaningful universal control beyond having an emergency stop that turns the whole system on/off. \\ \hline
+
+Trained humans  & Constraints on the personal choice of operators occur if they are not free to decide whether to interact with the system to provide the service (particularly relevant at time of transitions from a non-automated to an automated service). 
+
+The emerging behaviour of the system could constrain operators’ options to access critical paths (e.g., to travel to urgent location safely).
+
+The emerging behaviour of the system could interfere with business policies in a way that constrains operators’ options (e.g., if a business policy prohibits trained humans to step over a robot or walk in an area where the density of agents is high, but because of its emergent behaviour the swarm behaves unexpectedly, hence leading the operator to violate that policy). & Operators cannot provide valid consent if they are not given information about the system functioning and capabilities, tailored to their level of understanding and monitoring needs, including information about where responsibility lies in case of system malfunctions. & Operators cannot have meaningful control over the system if they are not adequately trained.
+
+Operators cannot have meaningful control over the system if they do not have access to human readable information about the system and scenario at any given time.
+
+Operators cannot have meaningful control over the system if they do not have the ability to physically interact with or intervene on the system and scenario at any given time.
+
+Operators cannot have meaningful control if they cannot provide contextual awareness to the system when the system lacks/requires it.
+
+In large swarms, due to the volume of the system, operators cannot have meaningful universal control beyond having an emergency stop that turns the whole system on/off. 
+
+\\ \hline
+
+Manufacturers & Constraints on the personal choice of manufacturers occur when they are not free to decide how to design and develop the system due to resource limitations, institutional constraints, commercial interests or market imperatives. & Manufactures cannot give valid consent to system deployment if they do not have access to or do not understand the inner decision making of the system. & Manufacturers cannot have meaningful control over the system if the behaviour resulting from the system’s specifications does not reflect the manufacturers’ intentions. \\ \hline
+
+Company deploying the swarm & Constraints on the personal choice of the company deploying the system may occur if the company is not free to decide whether to adopt the system to provide the service (e.g., because of automating the service is the only economically viable option or due to new government regulations). & The company deploying the system cannot provide valid consent if they are not given information about the system functioning and capabilities, tailored to their level of understanding, including information about the swarm’s emergent behaviour, and where responsibility lies in case of system malfunctions. 
+
+The company deploying the system cannot give valid consent if the system has properties (e.g., biomimetic features) that deceive them and exploit their trust heuristics. &  The company deploying the system cannot have meaningful control if it does not have trained humans, and if the conditions for trained humans’ meaningful control are not met.
+
+The company deploying the system cannot have meaningful control if it does not have a detailed documentation of how the system works, failures to expect, typical and atypical system behaviour etc.\\ \hline 
+\end{tabular}
+\caption{\label{tab:autonomy}Respect for autonomy matrix}
+\end{table}
+
+\end{landscape}
+
+
+\begin{landscape}
+\begin{table}[]
+\begin{tabular}{|p{0.15\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|}
+\hline
+Groups of justice risk-exposed & Access to the system & Use of the system & Distribution of benefits and burdens & Redress & Punishment \\ \hline
+
+Members of the public  & Unfair treatment of members of the public may occur if there is not a human (non-automated) alternative to access the service (ability to opt out). & Unfair treatment may occur if there are barriers that prevent some members of the public to use the system (e.g., boxes are too low, hence preventing people with mobility impairment from depositing/retrieving their coat).
+
+Unfair treatment may occur if the system does not recognize some authorized* members of the public due to their characteristics (wheelchair users, different ethnicities etc.) *authorized = with Bluetooth turned on.
+
+Unfair treatment may occur due to the lack of a priority order for coat depositing and retrieval (procedural justice). & Members of the public may be unfairly treated if distribution of benefits and burdens is inequitable (e.g., if they are among the risk-bearers but not among the beneficiaries of the development and deployment of the system). & Unfair treatment of members of the public may occur if there is no mechanism for redress in case of system malfunction that leads to injuries, accidents, property damage or loss, or violation of any ethics requirement affecting them. & Members of the public may be treated unfairly if there is no appropriate punishment for certain kinds of trained humans’, manufactures’ or companies’ wrongful acts (e.g., negligence) that harm them. \\ \hline
+
+Trained humans  & Unfair treatment may occur if there are barriers that prevent some trained humans to perform the job/deliver the service (requirement of reasonable adjustments, especially in transition period). &  Unfair treatment may occur if the system does not recognize some authorized* trained humans due to their characteristics (wheelchair users, different ethnicities etc.) *authorized = with Bluetooth turned on. & Trained humans may be unfairly treated if distribution of benefits and burdens is inequitable (e.g., if they are among the risk-bearers but not among the beneficiaries of the development and deployment of the system). & Unfair treatment of trained humans may occur if there is no mechanism for redress in case of system malfunction that leads to injuries, accidents, damage or loss, or violation of any ethics requirement affecting them. & Trained humans may be treated unfairly if there is no appropriate punishment for certain kinds of end users’, manufactures’ or companies’ wrongful acts (e.g., negligence) that harm them. \\ \hline
+
+Manufacturers & & & Manufacturers may be unfairly treated if distribution of benefits and burdens is inequitable (e.g., if they are overburdened by inequitable risk bearing). & Mechanisms for redress should be in place to rectify any injustice/damage (e.g., reputational harm) experienced by manufacturers due to malicious use. & Manufactures may be treated unfairly if there is no appropriate punishment for certain kinds of end users’, trained humans’, or companies’ wrongful acts (e.g., negligence) that harm them. \\ \hline
+
+Company deploying the swarm & Unfair competition may occur if the costs of automating the service or replacing faulty agents make the swarm only affordable to large and established businesses. & & The company deploying the system may be unfairly treated if distribution of benefits and burdens is inequitable (e.g., if they are among the risk-bearers but not among the beneficiaries of the development and deployment of the system) \textit{[this is if we think of the company as the end user with respect to the developers]}. & Unfair treatment of the company deploying the system may occur if there is no mechanism for redress in case of system malfunction that leads to injuries, accidents, damage or loss, or violation of any ethics requirement affecting them \textit{[this is if we think of the company as the end user with respect to the developers]}. & The company deploying the system may be treated unfairly if there is no appropriate punishment for certain kinds of end users’, trained humans’, or manufactures’ wrongful acts (e.g., negligence) that harm them. \\ \hline 
+\end{tabular}
+\caption{\label{tab:justice}Justice matrix}
+\end{table}
+
+\end{landscape}
 
 \bibliographystyle{IEEEtran}
 \bibliography{AssuranceFWK-Swarms-Bibliography}

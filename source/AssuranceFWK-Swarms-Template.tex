@@ -44,7 +44,7 @@
 \end{IEEEkeywords}
 
 \section{Introduction}\label{introduction}
-The main contribution of this paper is a novel framework for assurance of emergent behaviour for use in autonomous robotic swarms based on the AMLAS, SACE* and SOCA* guidance (* under consideration). We illustrate the framework using a public cloakroom case study. 
+The main contribution of this paper is a novel framework for assurance of emergent behaviour for use in autonomous robotic swarms based on the AMLAS, SOCA, SACE* guidance (* under consideration). We illustrate the framework using a public cloakroom case study. 
 
 %\\\noindent\textbf{\textit{[Author General Guidelines: please write as a paper not as a Guidance like AMLAS; Please do not use AERoS word]}}\\
 
@@ -94,16 +94,16 @@ The main contribution of this paper is a novel framework for assurance of emerge
 
 \subsubsection{Case Study}
 
-\vspace{2mm}
-\noindent\textbf{\textit{\newline[Author Guidelines: Please use the cloakroom case study to illustrate the framework in Section III. If the examples in cloakroom case study are not sufficient, other swarm use cases listed below can be considered.]}}
+%\vspace{2mm}
+%\noindent\textbf{\textit{\newline[Author Guidelines: Please use the cloakroom case study to illustrate the framework in Section III. If the examples in cloakroom case study are not sufficient, other swarm use cases listed below can be considered.]}}
 
-\paragraph*{\textbf{Cloakroom}\label{ex:cloakroom}}
+\paragraph*{Cloakroom}\label{ex:cloakroom}
 The case study describes a public cloakroom where swarm of robots assist customers looking to deposit their jackets at an event \cite{Jones2020}. 
 It describes cases where customers are depositing jackets, handing a jacket to a robot for storing, and retrieval of jackets back to the customer. 
 
 \paragraph*{Other Swarm Use Cases}
-\textbf{\\Fault detection, diagnosis and recovery – Monitoring fires in a natural environment}. Fault detection model shall be trained to high level of accuracy. Thresholds for fault tolerance shall be set appropriately such that misclassification of a fault is a rare event. An agent experiencing minor faults shall not be immediately removed, should the fault not impact the task at hand. \\
-\textbf{\noindent Social swarm – Brainstorming at an event}. Humans follow robots which cluster based on input. Minimise blocking paths of other humans and agents. Maintain situational awareness of humans and agents in the environment. Before the task, provide a clear explanation of the steps of the activity. Clear guidance during the task. Provide information about how the swarm/robot works.
+\emph{\\Fault detection, diagnosis and recovery – Monitoring fires in a natural environment}. Fault detection model shall be trained to high level of accuracy. Thresholds for fault tolerance shall be set appropriately such that misclassification of a fault is a rare event. An agent experiencing minor faults shall not be immediately removed, should the fault not impact the task at hand. \\
+\emph{\noindent Social swarm – Brainstorming at an event}. Humans follow robots which cluster based on input. Minimise blocking paths of other humans and agents. Maintain situational awareness of humans and agents in the environment. Before the task, provide a clear explanation of the steps of the activity. Clear guidance during the task. Provide information about how the swarm/robot works.
 
 \noindent See research paper ``Mutual shaping in swarm robotics: User studies in fire and rescue, storage organization, and bridge inspection" \cite{Carrillo-Zapata2020}.
 
@@ -518,7 +518,7 @@ The principle of justice requires us to treat others in a fair, equitable, and a
 In Table \ref{tab:justice}, we used these different understandings to distil the ways in which the development and deployment of the swarm may cause unfair treatment of various stakeholders in the cloakroom use case \cite{Porter2022}. The threat to justice that more clearly relates to swarms’ emergent behaviour concerns the procedure in which objects are deposited and retrieved. For example, a robotic cloakroom may lead to unfair treatment of people who are arguably entitled to retrieve their belongings first based on need, such as people who have deposited their mobility aids together with their jackets. In a cloakroom implementation in which the swarm agents move around the area by performing random walks, which are easy to implement with no centralised control unit \cite{jones2020distributed}, there is no priority order. When an agent finds a box that has been requested, it brings it back, even if it happens that that box was ordered later than another box.
 
 This may be unproblematic in a small cloakroom, where waiting times are usually short. In a bigger area, a sub-requirement for RQ4 could be introduced to establish a priority mechanism for ``priority items” like mobility aids. However, care should be exercised in the implementation of this requirement. If agents started to ignore other items until they found and retrieved priority objects, it would likely reduce swarm efficiency. As a minimum, this would require stakeholders to make difficult decisions about how to strike a balance between efficiency and fairness; a significant decrease in system efficiency would end up disadvantaging those whose needs we want to prioritise. A better solution to implement a priority requirement would be to make it more likely that swarm agents carry boxes with priority items and so are ready to deliver them upon user’s request. This could be achieved by leveraging on other properties that a robot swarm needs by design, like reshuffling, where agents are designed with a probability to pick up a box they encounter and move it for a limited time, even if it is not of their interest \cite{milner2022stochastic}. Reshuffling is necessary in use cases like the cloakroom to avoid occluded boxes in the centre of a pile never being found. The probability of picking up and dropping a box may be changed so that agents encountering a priority item are required to carry it around for a little longer, hence increasing the chances that they will have it when that item is requested back. This example illustrates that, even when ethics requirements are clear, judgment still needs to be exercised in how to best implement them in a specific use case.  
-\subsubsection
+%\subsubsection
 
 % BEGINING OF PETE'S ADDITION
 
@@ -746,7 +746,7 @@ Taking into account outputs [N], [O] and [P] from activity 7, this activity aims
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/amlas-a-stage4-v2.png}%amlas-a-stage4.png
-	\caption{Adapted AMLAS model learning process (right).}
+	\caption{Adapted AMLAS model learning process.}
 	\label{amlas-a-stage4}
 \end{figure}
 
@@ -783,24 +783,24 @@ These examples will now be expanded in more detail below.
 
 In most cases there will be multiple, valid verification scenarios, also called test cases, applicable for each of the safety specifications. A `good test case' must be \emph{effective} at finding bugs or defects, \emph{efficient} in minimising the number of tests required, use resources \emph{economically} and be \emph{robust} to system changes~\cite{Fewster1999}. Using the EB Safety Requirements specification [H] and the principles of `good test cases', a few examples of potential scenarios and appropriate verification methods are explored in Table~\ref{tab:testgen}. 
 
-\subsubsubsection{RQ1.1 Low Impact collisions}
+\paragraph{RQ1.1 Low Impact collisions}
 
-For RQ1.1, relating to low impact collisions, suitable scenarios should consider a mix of both synthetic and physical testing to observe the safety compliance of the swarm controller. An important metric for assessing this safety requirement will be colllision detection which could be achieved either through on-board hardware sensors or indirectly through external monitoring, e.g. overhead camera and tracking system. Simulation is a valid verification method for RQ1.1 as testing time can be accelerated through parallelisation and test generation could be automated to include some randomisation and constrained randomisation whilst monitoring the collision detection metric. Physical testing, usually limited due to time and cost constraints, should be more prescriptive and should orchestrate scenarios that have a high probability of exercising the collision detection routine of the swarm agent controller ([V] EB Algorithm), for example forcing swarm agents to travel a narrow passage to elevate sarm density. 
+For RQ1.1, relating to low impact collisions, suitable scenarios should consider a mix of both synthetic and physical testing to observe the safety compliance of the swarm controller. An important metric for assessing this safety requirement will be collision detection which could be achieved either through on-board hardware sensors or indirectly through external monitoring, e.g. overhead camera and tracking system. Simulation is a valid verification method for RQ1.1 as testing time can be accelerated through parallelisation and test generation could be automated to include some randomisation and constrained randomisation whilst monitoring the collision detection metric. Physical testing, usually limited due to time and cost constraints, should be more prescriptive and should orchestrate scenarios that have a high probability of exercising the collision detection routine of the swarm agent controller ([V] EB Algorithm), for example forcing swarm agents to travel a narrow passage to elevate swarm density. 
 
-Runtime verification can offer a solution to verifying systems that operate in large state-spaces, that may be intractable to verify at design time or through sampling the state space in testing. However, the choice or design of runtime oracle which provides the ground truth may require significant development, or innovative solutions~\cite{maple2020cyres}. However, for RQ1.1 of the swarm safety requirement this may be achieved with collision detection monitors, either implemented within the swarm robots or externally monitored through a tracking system, e.g. Vicon. Tracking with an external systems may be less reliable that physical sensing, e.g. accelerometer based collision detection, but being an independent system offers other assurances, being an independent evidence sosurce and protect against cascading failure that may occur due to collisions where the agents fail to report the collision event due to other failures, e.g. network connectivity.
+Runtime verification can offer a solution to verifying systems that operate in large state-spaces, that may be intractable to verify at design time or through sampling the state space in testing. However, the choice or design of runtime oracle which provides the ground truth may require significant development, or innovative solutions~\cite{maple2020cyres}. However, for RQ1.1 of the swarm safety requirement this may be achieved with collision detection monitors, either implemented within the swarm robots or externally monitored through a tracking system, e.g. Vicon. Tracking with an external systems may be less reliable that physical sensing, e.g. accelerometer based collision detection, but being an independent system offers other assurances, being an independent evidence source and protect against cascading failure that may occur due to collisions where the agents fail to report the collision event due to other failures, e.g. network connectivity.
 
-\subsubsubsection{RQ2.2 Agent Movement}
+\paragraph{RQ2.2 Agent Movement}
 
-For RQ2.2, which ensures agents move every 100 seconds outside the delivery area, a suitable verification metric could monitor the time agents are ouside a designated geospatial area (the delivery site) in addition to monitoring agent wheel speed. Scenarios should be biased towards these conditions by, for example, ensuring a sufficient number of agents outside the delivery area (by making the delivery area small or non-existent) and monitoring when wheel speed is zero for sufficiently long horizons to improve the likelihood of witnessing such an event by chance, e.g. see~\cite{chance2020agency}. Increasing the chance that such rare events occur can accelerate evidence gathering which could be done in this case, for example, by constraining the agents environment, increasing swarm density, or fault injecting to the collision sensors so valid movement actions are limited. 
+For RQ2.2, which ensures agents move every 100 seconds outside the delivery area, a suitable verification metric could monitor the time agents are outside a designated geospatial area (the delivery site) in addition to monitoring agent wheel speed. Scenarios should be biased towards these conditions by, for example, ensuring a sufficient number of agents outside the delivery area (by making the delivery area small or non-existent) and monitoring when wheel speed is zero for sufficiently long horizons to improve the likelihood of witnessing such an event by chance, e.g. see~\cite{chance2020agency}. Increasing the chance that such rare events occur can accelerate evidence gathering which could be done in this case, for example, by constraining the agents environment, increasing swarm density, or fault injecting to the collision sensors so valid movement actions are limited. 
 
-Whereas RQ1.1 is only suitable for simulation and physical testing, RQ2.2 could use these techniques in addition to also using a formal verification anlaysis. A formal analysis could take the form of a probabilistic finite stste machine~\cite{Calinescu2018}, which would require a description of the agent states and the state transition proabilities. State transition probabilities can be derived from an action selection policy which, for this use case, can be derived from the swarm controller behaviour tree. Whereas testing based verification (physical, simulation, etc.) samples the input space, a formal analysis can prove a system property across the entire parameter range, which can be particularly beneficial in giving confidence in system compliance against the requirements. 
+Whereas RQ1.1 is only suitable for simulation and physical testing, RQ2.2 could use these techniques in addition to also using a formal verification analysis. A formal analysis could take the form of a probabilistic finite state machine~\cite{Calinescu2018}, which would require a description of the agent states and the state transition probabilities. State transition probabilities can be derived from an action selection policy which, for this use case, can be derived from the swarm controller behaviour tree. Whereas testing based verification (physical, simulation, etc.) samples the input space, a formal analysis can prove a system property across the entire parameter range, which can be particularly beneficial in giving confidence in system compliance against the requirements. 
 
 
 \subsubsection{Verification Testbench}
 
 For simulation-based testing, a testbench can be used to orchestrate the `verify' task (stage 13 of AMLAS), see Figure~\ref{amlas-a-testbench}. The testbench operates by using a \emph{simulator} to test the \emph{Agent Controller} software ([V] EB Algorithm) against \emph{Static} and \emph{Dynamic} stimuli. These stimuli are formed from \emph{Scenery} and \emph{Actor Behaviour} components which could be, for example, a virtual warehouse with staff, other robots and controllable lighting presenting a typical scenario to the virtual swarm. The \emph{Swarm Requirements} are used to drive suitable experiment instantiation so that the stimuli provoke the intended behaviours in the swarm that will prove (or possibly disprove) the safety properties under observation. A coverage monitor will be used to check that all the requirements have sufficient evidence against each entry and, for dynamic testbench architectures, can even be used to drive additional test cases. 
 
-In addition to requirements coverage, the there may also be coverage place on the Agent Controller code itself, ensuring that all code is executed as expected for each behaviour. Assertions Coverage is a third method by which safet assurance evidence can be gathered. Assertions are statements pertaining to system properties written in the form of a ruleset, for example "A swarm agent shall not collide with another swarm agent". Such an assertion can be monitored during verification activities, which is represented in the lower right section of the testbench. Through \emph{logging} the appropriate data channels, such as agent position and speed, and then analysing the data to perform \emph{Assertion Testing} either at runtime or offline, the swarm can be shown to comply with these assertions e.g. see~\cite{harper2021safety}. 
+In addition to requirements coverage, the there may also be coverage place on the Agent Controller code itself, ensuring that all code is executed as expected for each behaviour. Assertions Coverage is a third method by which safety assurance evidence can be gathered. Assertions are statements pertaining to system properties written in the form of a ruleset, for example "A swarm agent shall not collide with another swarm agent". Such an assertion can be monitored during verification activities, which is represented in the lower right section of the testbench. Through \emph{logging} the appropriate data channels, such as agent position and speed, and then analysing the data to perform \emph{Assertion Testing} either at runtime or offline, the swarm can be shown to comply with these assertions e.g. see~\cite{harper2021safety}. 
 
 \begin{figure*}
 	\centering
@@ -828,7 +828,7 @@ every 100s    & physical, runtime  & stationary monitoring metric 			   & operat
 \end{tabular}
 \end{table*}
 
-\subsubsection{Verifiability & Visualisation}
+\subsubsection{Verifiability \& Visualisation}
 
 Physical testing offers the opportunity to measure ground-truth..
 Resolves the reality-gap to simulation...
@@ -852,12 +852,12 @@ Fig.~\ref{swarm_trust_spider} is an example of a safety visualisation spider gra
 %	\item Verifiability?
 %\end{itemize}
 
-\begin{figure*}
+\begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/amlas-a-stage5.png}
-	\caption{Adapted AMLAS verification assurance process (right).}
+	\includegraphics[width=0.5\textwidth]{figures/amlas-a-stage5_v2.png}%amlas-a-stage5.png
+	\caption{Adapted AMLAS verification assurance process.}
 	\label{amlas-a-stage5}
-\end{figure*}
+\end{figure}
 
 
 \subsection{Stage 6: Model Deployment} \label{framework-stage6}
@@ -867,12 +867,12 @@ Fig.~\ref{swarm_trust_spider} is an example of a safety visualisation spider gra
 \noindent WP4 = (Activities: 16, Inputs: EE, Outputs: FF), \\
 \noindent WP3 = (Regulatory Considerations – 675 words / 0.75 page maximum)}}\\
 See Fig.~\ref{amlas-a-stage6}
-\begin{figure*}
+\begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{figures/amlas-a-stage6.png}
-	\caption{Adapted AMLAS model deployment assurance process (right).}
+	\includegraphics[width=0.5\textwidth]{figures/amlas-a-stage6_v2.png}%amlas-a-stage6.png
+	\caption{Adapted AMLAS model deployment assurance process.}
 	\label{amlas-a-stage6}
-\end{figure*}
+\end{figure}
 
 \subsubsection*{Activity 15. Integrate EB}
 
@@ -906,6 +906,9 @@ Results from the integration testing will be reported here, detailing how the sy
 
 \section*{Acknowledgments}
 The work presented in this paper has been supported by the UK Engineering and Physical Sciences Research Council (EPSRC) under the grant [EP/V026518/1].
+
+\bibliographystyle{IEEEtran}
+\bibliography{AssuranceFWK-Swarms-Bibliography}
 
 \appendices
 \section*{Appendix A. Ethics matrices}
@@ -1161,10 +1164,10 @@ The system shall/should not be predicated on moment-by-moment and real-time moni
 \end{table}
 \end{landscape}
 
-\bibliographystyle{IEEEtran}
-\bibliography{AssuranceFWK-Swarms-Bibliography}
+%\bibliographystyle{IEEEtran}
+%\bibliography{AssuranceFWK-Swarms-Bibliography}
 
-\newpage
+%\newpage
 
 \vfill
 

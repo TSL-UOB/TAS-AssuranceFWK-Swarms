@@ -778,11 +778,11 @@ Taking into account outputs [N], [O] and [P] from activity 7, this activity aims
 
 In the design of an emergent behaviour algorithm, the challenge is in selecting behaviours at the individual level of the agent which give rise to the desired emergent behaviour at the swarm level. The original AMLAS application in Stage 4 focused on the creation, testing and instantiation of a machine learning model for a single system with no emergent behaviours to consider for a collective. In our adaptation of AMLAS for the robot swarm,  we step away from the machine learning paradigm to allow consideration for all possible optimization algorithms which may attain the target emergent behaviour.
 
-\subsubsection*{Activity 10. Create EB Algorithm:}
+\subsubsection*{Activity 10. Create EB Algorithm}
 
 Here we have two levels to consider: the individual level behaviour which is informed by individual agent sensing capabilities [N*] and the swarm level emergent behaviour which shall necessarily meet the safety requirements [H] defined in Stage 2 (see Fig.~\ref{amlas-a-stage4}). In the example of the cloakroom given in Section \ref{ex:cloakroom}, the target emergent behaviour for the swarm shall ensure that items are stored and retrieved by individuals. Performance requirements RQ1.1 and RQ1.2 specify an upper bound on the low/high impact collisions that a swarm shall experience in a given time frame. These requirements may be fulfilled by constraining the maximum velocity of individual robots, for example, or by ensuring that a robot has a camera or infra-red sensors which enable it to detect obstacles. The outputs from this activity follow the AMLAS framework, with a candidate emergent behaviour algorithm produced rather than a ML model. Output [U], the model development log, should log the rationale in the design process of the emergent behaviour algorithm.
 
-\subsubsection*{Activity 11. Test EB Algorithm:}
+\subsubsection*{Activity 11. Test EB Algorithm}
 
 In this activity, the candidate emergent behaviour will be tested against the swarm performance metrics [O] produced in Stage 3. Testing ensures that the emergent behaviour performs as desired with respect to the defined metrics and in the case where performance is above the accepted thresholds, the emergent behaviour algorithm will be produced as an output [V] of the activity. The internal test results [X] will also be an output from the testing process.
 

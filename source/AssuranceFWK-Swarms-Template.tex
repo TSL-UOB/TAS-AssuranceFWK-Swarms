@@ -14,6 +14,11 @@
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
 \usepackage{lscape} 
+
+\usepackage[breaklinks]{hyperref}
+\usepackage{url}
+\usepackage{breakurl}
+\usepackage[normalem]{ulem}
 \hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
 
 \begin{document}
@@ -44,7 +49,7 @@
 \end{IEEEkeywords}
 
 \section{Introduction}\label{introduction}
-The main contribution of this paper is a novel framework for assurance of emergent behaviour for use in autonomous robotic swarms based on the AMLAS, SOCA, SACE* guidance (* under consideration). We illustrate our framework using a public cloakroom case study. 
+The main contribution of this paper is a novel framework for assurance of emergent behaviour for use in autonomous robotic swarms based on the AMLAS, SOCA, and SACE* guidance (* under consideration). We illustrate our framework using a public cloakroom case study. 
 
 %\\\noindent\textbf{\textit{[Author General Guidelines: please write as a paper not as a Guidance like AMLAS; Please do not use AERoS word]}}\\
 
@@ -105,7 +110,7 @@ It describes cases where customers are depositing jackets, handing a jacket to a
 \emph{\\Fault detection, diagnosis and recovery – Monitoring fires in a natural environment}. Fault detection model shall be trained to high level of accuracy. Thresholds for fault tolerance shall be set appropriately such that misclassification of a fault is a rare event. An agent experiencing minor faults shall not be immediately removed, should the fault not impact the task at hand. \\
 \emph{\noindent Social swarm – Brainstorming at an event}. Humans follow robots which cluster based on input. Minimise blocking paths of other humans and agents. Maintain situational awareness of humans and agents in the environment. Before the task, provide a clear explanation of the steps of the activity. Clear guidance during the task. Provide information about how the swarm/robot works.
 
-\noindent See research paper ``Mutual shaping in swarm robotics: User studies in fire and rescue, storage organization, and bridge inspection" \cite{Carrillo-Zapata2020}.
+\noindent See research paper ``Mutual shaping in swarm robotics: User studies in fire and rescue, storage organisation, and bridge inspection" \cite{Carrillo-Zapata2020}.
 
 \subsection{Related Work}\label{relatedwork}
 
@@ -126,7 +131,7 @@ The process is iterative by design and feedback is used to update previous stage
 
 \subsection{Overview of Framework} \label{framework-overview}
 %The rest of Section \ref{framework} is organized as follows. 
-\textbf{In Section~\ref{framework-stage1}--\ref{framework-stage6}, using case study examples from the cloakroom, we discuss how the six AMLAS stages are adapted for autonomous robotic swarms. In addition to the safety requirements formulated based on AMLAS, we also formulate requirements for transparency (\ref{transparency-r}), ethics (\ref{ethics-r}) and regulations (\ref{regulations-r}). Extended details of the ethical and regulatory requirements have been included in the Appendix A and B, respectively.}\\
+\textbf{In Section~\ref{framework-stage1}--\ref{framework-stage6}, we discuss how the six AMLAS stages are adapted for autonomous robotic swarms using examples from the cloakroom case study. In addition to the safety requirements formulated based on AMLAS, we also formulate requirements for transparency (\ref{transparency-r}), ethics (\ref{ethics-r}) and regulations (\ref{regulations-r}). Extended details of the ethical and regulatory requirements have been included in the Appendix A and B, respectively.}\\
 
 %Simple algorithms are executed by individuals.
 %These simple behaviours performed by large numbers of agents build to emergent behaviours.
@@ -205,7 +210,7 @@ Based on the different use cases considered in our study, we can provide a descr
 \begin{itemize}
 	\item \textit{A swarm of robotic agents collecting and delivering jackets, stored in small box-like containers within a cloakroom}. Agents are required to navigate a public space between collection and delivery points of jackets. Agents use local communication, perception, and data to form an emergent system of navigation that allows them to easily traverse the public space between jacket collection and delivery points.
 	\item \textit{A swarm of UAVs monitoring wildfire risks in a natural environment}. Here, agents will be required to stay within communication range of each other, effectively covering the search area and accurately detecting risks of fire.
-	\item \textit{Social swarm – brainstorming at an event}. Humans input their opinions on agents which then cluster based on the input. [Humans follow the agent they interacted with and user groups emerge in the process.]
+	\item \textit{Social swarm – brainstorming at an event}. Humans input their opinions on agents which then cluster based on the input. Humans follow the agent they interacted with and user groups emerge in the process.
 \end{itemize}
 
 \paragraph*{[C] System Description}
@@ -352,7 +357,7 @@ As suggested in AMLAS guidance, we use reviews and simulations to validate the E
 	\caption{\label{tab:perormance}Performance requirements for the cloakroom.}
 \end{table}    
 
-\begin{table}[!h]
+\begin{table}[!t]
 	\centering
 	\begin{tabular}{|p{7mm}|p{72mm}|}
 		\hline
@@ -428,6 +433,8 @@ As suggested in AMLAS guidance, we use reviews and simulations to validate the E
 	\caption{\label{tab:human-s}Human safety requirements for the cloakroom.}
 \end{table}   
 
+
+
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|p{7mm}|p{72mm}|}
@@ -451,8 +458,7 @@ As suggested in AMLAS guidance, we use reviews and simulations to validate the E
 	\caption{\label{tab:environment}Environment requirements for the cloakroom.}
 \end{table}   
 
-
-\begin{table*}[!t]
+\begin{table*}
 	\centering
 	\begin{tabular}{|l| l| l| l| l| l|} %{|*{18}{c|}}  % repeats {c|} 18 times 
 		\hline
@@ -472,10 +478,11 @@ As suggested in AMLAS guidance, we use reviews and simulations to validate the E
 		5.2.3 Expert advisors in administrative actions or litigation (NC) & X & & & & \\ \hline
 		\multicolumn{6}{|p{15cm}|}{NOTE—The company should take into account ISO 9001 accreditation or equivalent for the swarm.}\\ \hline
 	\end{tabular}
-	\caption{\label{tab:transparency}System transparency specification for the cloakroom.}
+	\caption{\label{tab:transparency}Transparency requirements for the cloakroom: System transparency specification.}
 \end{table*}
 
-In addition to the safety requirements derived based on AMLAS, we also derive requirements for transparency (\ref{transparency-r}), ethics (\ref{ethics-r}) and regulations (\ref{regulations-r}), as discussed next.\\
+
+In addition to the safety requirements formulated based on AMLAS, we also formulate requirements for transparency (\ref{transparency-r}), ethics (\ref{ethics-r}) and regulations (\ref{regulations-r}), as discussed next.\\
 
 \subsubsection{Transparency Requirements: System Transparency Specification}\label{transparency-r}
 In this section, we show how IEEE P7001 standard can be applied to specify transparency requirements for the Cloakroom prior to its implementation, which is known as a process of \textit{System Transparency Specification} (STS) \cite{IEEE-P7001}. IEEE P7001 describes a set of normative requirements on transparency and explainability, which must be satisfied to be labelled as compliant. % cite both
@@ -484,7 +491,7 @@ In this section, we show how IEEE P7001 standard can be applied to specify trans
 A company that organizes bespoke events with 50 to 10000 attendees is looking to automate their cloakroom by deploying a swarm of robots to assist attendees (customers) to deposit, store and deliver their belongings (e.g. jackets) \cite{Jones2020}. % cloakroom paper 
 %Mindful of the safety, operational and regulatory requirements of the healthcare sector
 The system must prioritize public safety, and the company decides to use this standard on transparency as a draft specification for their engineers to more transparently communicate the decision-making processes of their automated cloakroom. %swarm system. 
-The score sheet summarizing the outcomes of the assessment is shown in Table~\ref{tab:transparency}. \\
+The score sheet summarizing the outcomes of the assessment is shown in Table~\ref{tab:transparency}. \\\\
 
 \subsubsection{Ethics Requirements}\label{ethics-r}
 Building on \cite{Porter2022}, and adapting it for our purposes, we developed ethics requirements for swarm robots around the ethical principles of beneficence, non-maleficence, respect for autonomy, and justice. We wrote a matrix outlining how each principle applies to each stakeholder (Tables  \ref{tab:beneficence}-\ref{tab:justice} in the Appendix A. To limit the scope of this paper, we decided to focus on the impact of our case study on members of the public, trained humans, manufacturers, and the company deploying the swarm, hence leaving aside questions about broader societal and environmental implications.
@@ -549,14 +556,14 @@ This section outlines Macrae’s \cite{macrae2021learning} Structural, Organisat
 
 Most pre-existing work on safety assurance in AIS has focused on developing technical aspects of assurance \cite{brundage2020toward}. The work has proven challenging (e.g. \cite{karvonen2020safety}, \cite{thieme2021proceedings}, \cite{sanchezexplainable}). The causes of some highly visible AIS failures were unforeseen, and therefore untested and unmanaged. The latent problem with Uber’s self-driving computer vision system, which led to the first autonomous vehicle fatality in 2018 \cite{Niedermeyer}, is one example. We might also look to the `object classification’ failures in the STM Kargu-2 lethal autonomous weapons system, which may have led it to hunt down and remotely engage retreating Libyan soldiers in March 2020 \cite{nasu2021kargu} or to a fault in an AI designed for diagnosing skin cancer, which misled clinical experts in 2019 \cite{tschandl2020human}.
 
-Such failures have eluded experts because their causes are rarely reducible to technical criteria alone. There is always a degree to which those causes lie in the wider `sociotechnical’ dimensions of autonomous and intelligent systems: the fact that AIS are ``… designed, developed, built, deployed, maintained, supervised, operated, and governed by people,” as Macrae \cite{macrae2021learning} puts it, and that those people operate within complex social, cultural, and organisational processes” (see also: \cite{pettersen2021organizational}, \cite{reason2016managing}). So it is, Macrae \cite{macrae2021learning} argues, that researchers developing assurance tools for autonomous systems should consider sociotechnical sources of risk and failure, and illustrates five intersecting dimensions along which such risks might be understood. He labels these: Structural; Organizational; Technological; Epistemic, and Cultural (‘SOTEC’). Each category is outlined briefly below and  analysed in terms of the swarm context.
+Such failures have eluded experts because their causes are rarely reducible to technical criteria alone. There is always a degree to which those causes lie in the wider `sociotechnical’ dimensions of autonomous and intelligent systems: the fact that AIS are ``… designed, developed, built, deployed, maintained, supervised, operated, and governed by people,” as Macrae \cite{macrae2021learning} puts it, and that those people operate within complex social, cultural, and organisational processes” (see also: \cite{pettersen2021organizational}, \cite{reason2016managing}). So it is, Macrae \cite{macrae2021learning} argues, that researchers developing assurance tools for autonomous systems should consider sociotechnical sources of risk and failure, and illustrates five intersecting dimensions along which such risks might be understood. He labels these: Structural; Organisational; Technological; Epistemic, and Cultural (‘SOTEC’). Each category is outlined briefly below and  analysed in terms of the swarm context.
 \\
 \paragraph*{Application of the SOTEC framework for regulatory requirements}
 \textbf{Structural} sources of risk arise from the way different human and nonhuman elements in a system interact, allowing failures in one area to rapidly degrade or impact on other parts of the system. For example, a fault in the upwards facing camera on a single swarm agent may allow a minor disruption – a person removing the box – to quickly amplify and grow into a situation where the agent is unable to detect whether the human has removed the box. Here, the fault in the structural character of the camera brings to light the risk of a swarm agent continuing to think that it is carrying the box and as a result it stops searching (whereas it should be searching or executing another task). This disruption in one part of the system then effects the broader context of the swarm system not only by reducing the overall optimal efficiency of the swarm (especially if the agent is trying to compete with other agents) but also because of the potential to grow into a critical situation where other agents are likely to give the faulty agent preference in hallways or corridors, potentially cluttering up the environment members of the public are permitted to move in. 
 
 Macrae \cite{macrae2021learning} might call this type of structural failure in a swarm context a ``disruption amplifier”.  As a result, disruption amplifiers are tied to the production of a particular and specific regulatory requirement; namely, the project of engineering the identification and prevention of disruption amplifiers, in the form of swarm engineers developing a system that can identify features which cause disruptions or failures and preventing these from enlarging, expanding, or developing into more critical situations which are harder to deal with or recover from. For swarm researchers interested in this type of project, a way of doing it might be to have all the other agents in the swarm (using their functioning radial camera) expressing to the agent (which has the faulty camera) to stop thinking that there is still a box on its head. In a broader perspective, one could also include other diverse regulatory requirements such as `identification and prevention of failure cascades’, `state of vigilance’, and `creation of test permeabilities’, as detailed in the Appendix A. However, as our focus in on disruption amplifiers, the regulatory requirements that we are concerned with here are those that are directly tied to preventing system features which cause disruptions or failures to enlarge. 
 
-\textbf{Organizational} sources of risk emerge when organizational structures — such as rules and expectations — are insensitive to the vagaries of real human behaviour and ineffective at detecting and managing errors. For example, if a swarm agent is on its own and away from the rest of the swarm and has a significant error, yet there is no alerting process in place to inform human operators that the agent has the error, it is unlikely that the operators will ever see the error message. This means that there is no system in place to issue alerts regarding the status and activities of the faulty individual agent that has gone, for want of a better word, `rogue’. Although the swarm may be able to continue to perform efficiently without the rogue agent, serious safety incidents could take place without going noticed (for instance, if a fault with the agent’s obstacle avoidance system is not detected the agent has the potential to bump into people’s shins. Macrae \cite{macrae2021learning} might call this type of organizational failure in a swarm context ``invisible automation”. As a result, invisible automation is tied to the production of a particular and specific regulatory requirement; namely, the project of engineering translucency around error reporting, in the form of the organization creating organizational processes that are effective at detecting and managing errors. For instance, ensuring that each agent is fitted with lights that flash red in order to draw operator attention. In a broader perspective, one could also include other diverse regulatory requirements such as `safety expertise and leadership’, `supervision’, `regulative mechanisms’, and `access to governance and standards', as detailed in the Appendix B. However, as our focus is on invisible automation, the regulatory requirements that we are concerned with here are those that are directly tied to the existence of alerting processes to not only inform swarm operators that the agent has an error or fault, but also to manage it.
+\textbf{Organisational} sources of risk emerge when organisational structures — such as rules and expectations — are insensitive to the vagaries of real human behaviour and ineffective at detecting and managing errors. For example, if a swarm agent is on its own and away from the rest of the swarm and has a significant error, yet there is no alerting process in place to inform human operators that the agent has the error, it is unlikely that the operators will ever see the error message. This means that there is no system in place to issue alerts regarding the status and activities of the faulty individual agent that has gone, for want of a better word, `rogue’. Although the swarm may be able to continue to perform efficiently without the rogue agent, serious safety incidents could take place without going noticed (for instance, if a fault with the agent’s obstacle avoidance system is not detected the agent has the potential to bump into people’s shins. Macrae \cite{macrae2021learning} might call this type of organisational failure in a swarm context ``invisible automation”. As a result, invisible automation is tied to the production of a particular and specific regulatory requirement; namely, the project of engineering translucency around error reporting, in the form of the organisation creating organisational processes that are effective at detecting and managing errors. For instance, ensuring that each agent is fitted with lights that flash red in order to draw operator attention. In a broader perspective, one could also include other diverse regulatory requirements such as `safety expertise and leadership’, `supervision’, `regulative mechanisms’, and `access to governance and standards', as detailed in the Appendix B. However, as our focus is on invisible automation, the regulatory requirements that we are concerned with here are those that are directly tied to the existence of alerting processes to not only inform swarm operators that the agent has an error or fault, but also to manage it.
 
 \textbf{Technological} sources of risk arise from the specific capabilities and constraints inscribed into and produced by the system itself. For example, if the swarm agents are made to have limited memory, recorded pieces of important information are unlikely to reach the operator in time to prevent a hazard. This is especially the case, when from a sociotechnical perspective, engineers produce individual agents that have limited memories so that when the agent detects or records a hazard (for example, a dropped garment) information about the hazard is deleted or overwritten by new information and that critical information about the hazard gets lost. Considered in this way, building swarm agents with a limited memory (say, that only retain information for 10 seconds before it gets overwritten or deleted) stops critical information about hazards or risks reaching the operators who are able to prevent accidents from happening. 
 
@@ -643,7 +650,7 @@ The completeness of the data specifies the conditions under which we test the be
 
 Accuracy in this context relates to the parameters defining the performance of the swarm systems primary function. For example, what constitutes a delivery in a logistics scenario, or under what conditions would an area be considered explored in a surveying mission. Table \ref{tab:L0_accuracy} shows some data requirement examples relating to accuracy.
 
-\begin{table}[h]
+\begin{table}[!t]
     \centering
     \begin{tabular}{p{1cm} p{6cm}}
         \textbf{ID} & \textbf{Example} \\
@@ -658,7 +665,7 @@ Accuracy in this context relates to the parameters defining the performance of t
 
 Balance, outside of a machine learning use case, refers the balance of the trials executed in the testing process of the emergent behaviour algorithm. By considering balance, we expect the number of tests conducted for individual failure modes or environment types to be justified, ensuring that there is not an unrealistic bias in testing towards a particular scenario. Some examples of data requirements relating to balance are listed in \ref{tab:L0_balance}.
 
-\begin{table}[h]
+\begin{table}%[h]
     \centering
     \begin{tabular}{p{1cm} p{6cm}}
         \textbf{ID} & \textbf{Example} \\
@@ -709,7 +716,7 @@ Balance, outside of a machine learning use case, refers the balance of the trial
 
 With the introduction of multiple agents comes the issue of data availability. Distributed communication is a key feature found in emergent systems. As such, it is crucial to define how much information each agent is expected to hold, how easily data may transfer between agents, and across what range agents should be able to transfer information between one another. We present a list of feasible constrains with representative examples in Table \ref{tab:constraints}.
 
-\begin{table}[H]
+\begin{table}[!t]%[H]
     \centering
     \begin{tabular}{p{2cm} p{6cm}}
          \textbf{Constraint Type} & \textbf{Example}  \\
@@ -826,15 +833,7 @@ Whereas RQ1.1 is only suitable for simulation and physical testing, RQ2.2 could 
 
 For simulation-based testing, a testbench can be used to orchestrate the `verify' task (activity 13 of AMLAS), see Fig.~\ref{amlas-a-testbench}. The testbench operates by using a \emph{simulator} to test the \emph{Agent Controller} software ([V] EB Algorithm) against \emph{Static} and \emph{Dynamic} stimuli. These stimuli are formed from \emph{Scenery} and \emph{Actor Behaviour} components which could be, for example, a virtual warehouse with staff, other robots and controllable lighting presenting a typical scenario to the virtual swarm. The \emph{Swarm Requirements} are used to drive suitable experiment instantiation so that the stimuli provoke the intended behaviours in the swarm that will prove (or possibly disprove) the safety properties under observation. A coverage monitor will be used to check that all the requirements have sufficient evidence against each entry and, for dynamic testbench architectures, can even be used to drive additional test cases. 
 
-In addition to requirements coverage, the there may also be coverage place on the Agent Controller code itself, ensuring that all code is executed as expected for each behaviour. Assertions Coverage is a third method by which safety assurance evidence can be gathered. Assertions are statements pertaining to system properties written in the form of a ruleset, for example "A swarm agent shall not collide with another swarm agent". Such an assertion can be monitored during verification activities, which is represented in the lower right section of the testbench. Through \emph{logging} the appropriate data channels, such as agent position and speed, and then analysing the data to perform \emph{Assertion Testing} either at runtime or offline, the swarm can be shown to comply with these assertions e.g. see~\cite{harper2021safety}. \\
-
-\begin{figure*}
-	\centering
-	\includegraphics[width=1.0\textwidth]{figures/verification-testbench.png}
-	\caption{Adapted AMLAS verification assurance process: test bench.}
-	\label{amlas-a-testbench}
-\end{figure*}
-
+In addition to requirements coverage, the there may also be coverage place on the Agent Controller code itself, ensuring that all code is executed as expected for each behaviour. Assertions Coverage is a third method by which safety assurance evidence can be gathered. Assertions are statements pertaining to system properties written in the form of a ruleset, for example ``A swarm agent shall not collide with another swarm agent". Such an assertion can be monitored during verification activities, which is represented in the lower right section of the testbench. Through \emph{logging} the appropriate data channels, such as agent position and speed, and then analysing the data to perform \emph{Assertion Testing} either at runtime or offline, the swarm can be shown to comply with these assertions e.g. see~\cite{harper2021safety}. \\
 
 \begin{table*}[t]
 \caption{Verification scenarios [P] and suitable methods.}\label{tab:testgen}
@@ -854,6 +853,12 @@ every 100s    & physical, runtime  & stationary monitoring metric 			   & operat
 \end{tabular}
 \end{table*}
 
+\begin{figure*}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/verification-testbench.png}
+	\caption{Adapted AMLAS verification assurance process: test bench.}
+	\label{amlas-a-testbench}
+\end{figure*}
 
 \subsubsection*{Verifiability \& Visualisation}
 
@@ -897,9 +902,9 @@ Figure~\ref{swarm_trust_spider} is an example of a safety visualisation spider g
 
 \subsubsection*{Activity 15. Integrate EB}
 
-With the emergent behaviour verified, the next step is to take the model [V] as well as the system safety requirements [V], environment description [B] and system description [C] and integrate the emergent behaviour with the system to be deployed (see Fig.~\ref{amlas-a-stage6}). In this activity we use the inputs to this stage to educate the implementation of the emergent behaviour and anticipate errors we might expect in the interactions between agents and the overall emergent behaviour. Despite the rigorous validation and testing conducted in previous stages, there will still be a gap between the test environment and the intended, every day use, deployed scenario. The output, [DD] Model Development Log, captures these anticipated gaps between testing and reality and the differences in behaviour that might sprout from them.
+With the emergent behaviour verified, the next step is to take the model [V] as well as the system safety requirements [A], environment description [B] and system description [C] and integrate the emergent behaviour with the system to be deployed (see Fig.~\ref{amlas-a-stage6}). In this activity we use the inputs to this stage to educate the implementation of the emergent behaviour and anticipate errors we might expect in the interactions between agents and the overall emergent behaviour. Despite the rigorous validation and testing conducted in previous stages, there will still be a gap between the test environment and the intended, every day use, deployed scenario. The output, [DD] Model Development Log, captures these anticipated gaps between testing and reality and the differences in behaviour that might sprout from them.
 
-For example, once physically deployed it may become apparent that large fluctuations in speed used to maintain performance while keeping the system safe for Humans, may in reality be too much of a draw on the agents batteries to get a reasonable lifetime out of each battery charge. To address this the behaviour may need to be tweaked to sacrifice some performance in the short term, reducing the rates of acceleration experienced by agents, in order to gain a longer battery life.
+For example, once physically deployed it may become apparent that large fluctuations in speed used to maintain performance while keeping the system safe for humans, may in reality be too much of a draw on the agents batteries to get a reasonable lifetime out of each battery charge. To address this the behaviour may need to be tweaked to sacrifice some performance in the short term, reducing the rates of acceleration experienced by agents, in order to gain a longer battery life.
 
 \subsubsection*{Activity 16. Test the Integration}
 
@@ -942,7 +947,7 @@ Please note that, at this early stage, these tables are only suggestive. More co
 \begin{table}[]
 \begin{tabular}{|p{0.15\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|}
 \hline
-Groups of beneficiaries & Physical benefits & Psychological benefits  & Financial/economic benefits   & Reputational benefits  & Legal benefits \\ \hline
+\textbf{Groups of beneficiaries} & \textbf{Physical benefits} & \textbf{Psychological benefits}  & \textbf{Financial/economic benefits}   & \textbf{Reputational benefits}  & \textbf{Legal benefits }\\ \hline
 
 Members of the public  &  & End users may enjoy a faster and more convenient service. 
 
@@ -966,7 +971,7 @@ Company deploying the swarm &   &  & The company deploying the swarm may benefit
 \begin{table}[]
 \begin{tabular}{|p{0.10\textheight}|p{0.07\textheight}|p{0.20\textheight}|p{0.20\textheight}|p{0.20\textheight}|p{0.20\textheight}|p{0.20\textheight}|}
 \hline
-Groups of risk-exposed & Physical harms & Psychological harms & Data privacy harms  & Financial/economic harms   & Reputational harms  & Legal harms \\ \hline
+\textbf{Groups of risk-exposed} & \textbf{Physical harms} & \textbf{Psychological harms} & \textbf{Data privacy harms}  & \textbf{Financial/economic harms}   & \textbf{Reputational harms}  & \textbf{Legal harms} \\ \hline
 
 Members of the public  & \textit{Addressed by technical requirements.} & Inexperienced users may experience psychological discomfort (stress) from interacting with a novel (not seen before) and complex (multi agent) system. 
 
@@ -997,7 +1002,7 @@ The company deploying the system may experience financial/economic harms if acci
 \begin{table}[]
 \begin{tabular}{|p{0.10\textheight}|p{0.35\textheight}|p{0.35\textheight}|p{0.35\textheight}|}
 \hline
-Groups of autonomy risk-exposed  & Personal choice & Informed consent & Meaningful control \\ \hline
+\textbf{Groups of autonomy risk-exposed}  & \textbf{Personal choice} & \textbf{Informed consent} & \textbf{Meaningful control} \\ \hline
 
 Members of the public  & Constraints on the personal choice of members of the public occur if there is not a human (non-automated) alternative to use the service (ability to opt out).
 
@@ -1047,7 +1052,7 @@ The company deploying the system cannot have meaningful control if it does not h
 \begin{table}[]
 \begin{tabular}{|p{0.15\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|p{0.18\textheight}|}
 \hline
-Groups of justice risk-exposed & Access to the system & Use of the system & Distribution of benefits and burdens & Redress & Punishment \\ \hline
+\textbf{Groups of justice risk-exposed} & \textbf{Access to the system} & \textbf{Use of the system} & \textbf{Distribution of benefits and burdens} & \textbf{Redress} & \textbf{Punishment} \\ \hline
 
 Members of the public  & Unfair treatment of members of the public may occur if there is not a human (non-automated) alternative to access the service (ability to opt out). & Unfair treatment may occur if there are barriers that prevent some members of the public to use the system (e.g. boxes are too low, hence preventing people with mobility impairment from depositing/retrieving their coat).
 
@@ -1090,7 +1095,7 @@ The system shall/should not be predicated on moment-by-moment and real-time moni
 ``New iterations of developmental or operational autonomous systems are released for testing into the public domain with few safety controls, criteria, or assurance processes”. \cite{macrae2021learning} & If there are no processes in place for human operators to request or conduct tests that meet a set of performance standards, then weaknesses in real-world behaviour will go unnoticed. & \textbf{Creation of test permeabilities} The system shall/should create test permeabilities (e.g. safety assessments or safety requirements) that allows new or updated systems to be rapidly and regularly released into the public cloakroom. \\
 \hline
     \end{tabular}
-    \caption{Regulation Table 1.}
+    \caption{Regulatory requirements for structural sources of sociotechnical risks.}%{Regulation Table 1.}
     \label{tab:reg_1}
 \end{table}
 \end{landscape}
@@ -1104,18 +1109,18 @@ The system shall/should not be predicated on moment-by-moment and real-time moni
    \hline
    \textbf{Invisible Automation.} ``Weaknesses or gaps in processes that maintain awareness, provide insight and issue alerts regarding the status, activities, and decisions of automated systems”. \cite{macrae2021learning} & A swarm agent has gone ‘rogue’ and is away from the rest of the swarm AND has a significant error. However, there is no alerting process in place to inform human operators that the agent has the error. Because of this, it is unlikely that the operators will see the error message. Although the rest of the swarm may be able to continue to perform efficiently without the rogue agent, serious safety incidents could take place which may be going unnoticed (for instance, if a fault with the agent’s obstacle avoidance system is not detected the agent has the potential to bump into people’s shins).	& \textbf{Translucency around error reporting.} The system shall/should not create and hide errors (errors which can be nearly invisible or silent). Further to this, swarm operators could be provided with a mobile phone application that allows them to push a button and report the error.\\
    \hline
-   \textbf{Governance gaps} ``Gaps in organizational processes and systems that set standards for safety, monitor safety performance, and initiate action to address safety deficiencies”. \cite{macrae2021learning} & A swarm operator may have no safety management system in place to govern and assure the operational safety of the swarm system. &\textbf{Access to governance and standards.} The system shall/should have adequate resources for swarm operators to draw upon in governing and assuring the operational safety of the swarm. For example, having a safety plan or a standard for operating procedures that set out roles, responsibilities, and processes for the analysis and management of risk in its operations.
+   \textbf{Governance gaps} ``Gaps in organisational processes and systems that set standards for safety, monitor safety performance, and initiate action to address safety deficiencies”. \cite{macrae2021learning} & A swarm operator may have no safety management system in place to govern and assure the operational safety of the swarm system. &\textbf{Access to governance and standards.} The system shall/should have adequate resources for swarm operators to draw upon in governing and assuring the operational safety of the swarm. For example, having a safety plan or a standard for operating procedures that set out roles, responsibilities, and processes for the analysis and management of risk in its operations.
    \\
    \hline
    \textbf{Regulatory voids} ``Absence of regulatory requirements, performance standards and associated oversight activities to assure the safe development, testing, deployment, and operation of automated systems”. \cite{macrae2021learning} & A swarm system may be subject to little regulatory oversight with no regulatory system in place by the company/local councils for monitoring safety performance.&
    \textbf{Regulative mechanisms.} The system shall/should help to identify relevant regulative mechanisms that regulate probabilistic risks and unpredictable phenomena on a local scale. \\
    \hline
-   \textbf{Supervisory degradation} ``Reduced or inadequate organizational arrangements to support, monitor, and assure the activities of supervising automated systems”. \cite{macrae2021learning} & The organisation has instituted no routine process or automated system to monitor swarm operator vigilance and reduced the number of operators per cloakroom environment from two to one, reducing the cognitive capacity available to monitor both the swarm graphical user interface and the environment. &	\textbf{Supervision.} The system shall/should develop a formalized or automated system to monitor the vigilance of swarm operators. Also, swarm operator shifts should be around 8 hours with a requirement to take a 20 - 40minute break after 4 hours of continuous monitoring. \\
+   \textbf{Supervisory degradation} ``Reduced or inadequate organisational arrangements to support, monitor, and assure the activities of supervising automated systems”. \cite{macrae2021learning} & The organisation has instituted no routine process or automated system to monitor swarm operator vigilance and reduced the number of operators per cloakroom environment from two to one, reducing the cognitive capacity available to monitor both the swarm graphical user interface and the environment. &	\textbf{Supervision.} The system shall/should develop a formalized or automated system to monitor the vigilance of swarm operators. Also, swarm operator shifts should be around 8 hours with a requirement to take a 20 - 40minute break after 4 hours of continuous monitoring. \\
    \hline
    \textbf{Competency limits} ``Limitations or gaps in the roles, expertise, and experience available for analysing and managing all aspects of safety across the development and deployment of an automated system”. \cite{macrae2021learning} & The cloakroom does not have a dedicated safety team or personnel with responsibility for managing the operational safety of its swarm. & \textbf{Safety expertise and Leadership} The system shall/should request that the organisation have a safety team in place, who have safety responsibilities combined with operational leadership responsibilities and relevant competencies made explicit through their roles.\\
    \hline
     \end{tabular}
-    \caption{Regulation Table 2.}
+    \caption{Regulatory requirements for organisational sources of sociotechnical risks.}%{Regulation Table 2.}
     \label{tab:reg_2}
 \end{table}
 \end{landscape}
@@ -1136,7 +1141,7 @@ The system shall/should not be predicated on moment-by-moment and real-time moni
         \textbf{Autonomy reliance } ``Dependence on autonomous functionality for technical safety protections and controls, to the exclusion of other lower-technology components that could provide safety redundancy”. \cite{macrae2021learning} & The swarm system relies solely on its own crash avoidance software to provide all hazard detection and avoidance functions, but the independent agent emergency obstacle avoidance function was disabled. &	\textbf{No self-reliance on internal infrastructure.} The system shall/should not only alert human operators that the emergency obstacle avoidance system is disabled/enabled, but that there may also be a ``low tech” solution to the problem, such as putting bumpers on individual agents or putting them in ``zones”.\\
         \hline
     \end{tabular}
-    \caption{Regulation Table 3.}
+    \caption{Regulatory requirements for technological sources of sociotechnical risks.}%{Regulation Table 3.}
     \label{tab:reg_3}
 \end{table}
 \end{landscape}
@@ -1159,7 +1164,7 @@ The system shall/should not be predicated on moment-by-moment and real-time moni
          \textbf{Technical novelty} ``Reluctance to create or share safety data due to fears it may disclose commercially sensitive information or reveal performance weaknesses in a competitive arena”. \cite{macrae2021learning} & The sharing of safety data is limited within the company, with details on safety events not circulated within the organisation and access to the safety incident database limited. In addition, operators may be dissuaded from seeking out data related to limitations and gaps in safety performance, describing that their suggestions and details of safety requirements and tests were not well received. & \textbf{Transparent, cooperative and open safety.} The system shall/should encourage the sharing of safety data, with swarm operators/managers recommending that data on safety events (accidents or near misses) should be circulated within the organisation, and that operators/staff should be encouraged to seek out data related to limitations and gaps in safety performance.\\
          \hline
     \end{tabular}
-    \caption{Regulation Table 4.}
+    \caption{Regulatory requirements for epistemic sources of sociotechnical risks.}%{Regulation Table 4.}
     \label{tab:reg_4}
 \end{table}
 \end{landscape}
@@ -1171,9 +1176,9 @@ The system shall/should not be predicated on moment-by-moment and real-time moni
         \hline
         \textbf{Cultural Sources of Sociotechnical Risk:} Risks arising from collective values, beliefs, norms and practices & \textbf{Risk scenario example} & 	\textbf{Regulatory requirements}\\
         \hline
-        \textbf{Performative production.} ``Organizational attention and activities focus on maximizing performance on narrow public metrics which do not represent underlying quality, safety, or improvement of the system”. \cite{macrae2021learning} & There is significant focus within the company on increasing the number of boxes being collected, a metric which may create perverse incentives and influence company activities including a shift to using only one box per garment and increasing pressures on swarm operators to maximize the number of boxes. & \textbf{Ongoing monitoring, recording and reporting of real metrics and their properties.} The system shall/should ensure metrics are realistic, collaborating with human operators to create fair metrics and data assessment tools to report on metrics. For example, developers could incorporate techniques to calculate fair metrics or consider how best to operationalise best practices, such as model governance and internal audits to ensure fairness.\\
+        \textbf{Performative production.} ``Organisational attention and activities focus on maximizing performance on narrow public metrics which do not represent underlying quality, safety, or improvement of the system”. \cite{macrae2021learning} & There is significant focus within the company on increasing the number of boxes being collected, a metric which may create perverse incentives and influence company activities including a shift to using only one box per garment and increasing pressures on swarm operators to maximize the number of boxes. & \textbf{Ongoing monitoring, recording and reporting of real metrics and their properties.} The system shall/should ensure metrics are realistic, collaborating with human operators to create fair metrics and data assessment tools to report on metrics. For example, developers could incorporate techniques to calculate fair metrics or consider how best to operationalise best practices, such as model governance and internal audits to ensure fairness.\\
         \hline
-        \textbf{Existential pressure} ``Overambitious targets and production pressures arising from fears that the existence of the organization is at stake in a competitive race to market”. \cite{macrae2021learning} & Facing pressure from the market, a company is aiming to meet an ambitious internal goal of being the first company to use the swarm cloakroom service ahead of all of its competitors. In order to achieve this, some emergency obstacle avoidance capabilities were removed from the software to reduce unpredictable random manoeuvres and justified on the basis of safety to avoid surprising other road users. & \textbf{Removing existential pressure} The system shall/should not be amenable to overambitious targets and production pressures, ensuring that management and operators are not put under any pressure to achieve unrealistic goals, unrealistic profit margins, unrealistic returns on investment and unrealistic customer satisfaction.\\
+        \textbf{Existential pressure} ``Overambitious targets and production pressures arising from fears that the existence of the organisation is at stake in a competitive race to market”. \cite{macrae2021learning} & Facing pressure from the market, a company is aiming to meet an ambitious internal goal of being the first company to use the swarm cloakroom service ahead of all of its competitors. In order to achieve this, some emergency obstacle avoidance capabilities were removed from the software to reduce unpredictable random manoeuvres and justified on the basis of safety to avoid surprising other road users. & \textbf{Removing existential pressure} The system shall/should not be amenable to overambitious targets and production pressures, ensuring that management and operators are not put under any pressure to achieve unrealistic goals, unrealistic profit margins, unrealistic returns on investment and unrealistic customer satisfaction.\\
         \hline
         \textbf{Concern quashing} ``Staff disempowered or discouraged in raising safety concerns, speaking up, or challenging assumptions due to fears of punitive responses or lack of support”. \cite{macrae2021learning} & Company staff/operators are not empowered or authorised to stop and ground the swarm system if they were concerned that some of the swarm agents were not safe? & \textbf{Encouraging operators to raise concerns and question decisions.} The system shall/should encourage operators to raise concerns if they think the swarm is not safe, ensuring that there are non-punitive channels for reporting safety concerns and that these are in place before use.\\
         \hline
@@ -1182,7 +1187,7 @@ The system shall/should not be predicated on moment-by-moment and real-time moni
         \textbf{Presumptive reliability } ``Assumptions that human vigilance is effective for monitoring complex automated systems for long periods of time and requires little support or monitoring”. \cite{macrae2021learning} & The swarm system is critically dependant on the vigilance and attentiveness of human operators to detect and intervene when it fails, but the vigilance, behaviour and attentiveness of operators is not routinely monitored via cameras which are not reviewed. In addition to this, operators are expected to work on their own monitoring the system for long periods. & \textbf{Definitive reliability.} The system shall/should not be predicated on unchallenged assumptions about the reliability and safety of human vigilance over prolonged periods of time, resulting in a system that monitors the operators or provides support for operator vigilance. This will help ensure that safety protocols are effective for ensuring safety of automated system. Requirements could include autonomic diagnosis, where the system is able to review itself and take some pressure off human operators. \\
         \hline
     \end{tabular}
-    \caption{Regulation Table 5.}
+    \caption{Regulatory requirements for cultural sources of sociotechnical risks.}%{Regulation Table 5.}
     \label{tab:tab_5}
 \end{table}
 \end{landscape}

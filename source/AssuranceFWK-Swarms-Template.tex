@@ -804,7 +804,7 @@ For example, assessing the swarm system meets the requirements for performance g
 However, when considering the adaptability requirements, a formal, probabilistic-based verification technique of the EB algorithm [V] is more suitable. For example, in [RQ2.1] analysis using a probabilistic finite state machine of the swarm behaviour tree, for example see \cite{Hoffmann2016,Calinescu2018}, could identify the dwell period within certain states. Monitors could be used to observe when agents enter a stationary state, e.g. \texttt{agent\_velocity=0 $\land $  t\_counter  $\ge$ 100}, and identify if time within that state exceeded some fixed value, and ascertain a probabilistic value to this metric.
 %
 These examples will now be expanded in more detail below.
-\begin{figure}
+\begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/amlas-a-stage5_v2.png}%amlas-a-stage5.png
 	\caption{Adapted AMLAS verification assurance process.}
@@ -815,6 +815,7 @@ These examples will now be expanded in more detail below.
 \subsubsection*{[P] Verification Scenario (Test Generation)}
 
 In most cases there will be multiple, valid verification scenarios, also called test cases, applicable for each of the safety specifications. A `good test case' must be \emph{effective} at finding bugs or defects, \emph{efficient} in minimising the number of tests required, use resources \emph{economically} and be \emph{robust} to system changes~\cite{Fewster1999}. Using the EB Safety Requirements specification [H] and the principles of `good test cases', a few examples of potential scenarios and appropriate verification methods are explored in Table~\ref{tab:testgen}. 
+
 
 \paragraph*{RQ1.1 Low Impact collisions}
 
@@ -827,6 +828,29 @@ Runtime verification can offer a solution to verifying systems that operate in l
 For RQ2.2, which ensures agents move every 100 seconds outside the delivery area, a suitable verification metric could monitor the time agents are outside a designated geospatial area (the delivery site) in addition to monitoring agent wheel speed. Scenarios should be biased towards these conditions by, for example, ensuring a sufficient number of agents outside the delivery area (by making the delivery area small or non-existent) and monitoring when wheel speed is zero for sufficiently long horizons to improve the likelihood of witnessing such an event by chance, e.g. see~\cite{chance2020agency}. Increasing the chance that such rare events occur can accelerate evidence gathering which could be done in this case, for example, by constraining the agents environment, increasing swarm density, or fault injecting to the collision sensors so valid movement actions are limited. 
 
 Whereas RQ1.1 is only suitable for simulation and physical testing, RQ2.2 could use these techniques in addition to also using a formal verification analysis. A formal analysis could take the form of a probabilistic finite state machine~\cite{Calinescu2018}, which would require a description of the agent states and the state transition probabilities. State transition probabilities can be derived from an action selection policy which, for this use case, can be derived from the swarm controller behaviour tree. Whereas testing based verification (physical, simulation, etc.) samples the input space, a formal analysis can prove a system property across the entire parameter range, which can be particularly beneficial in giving confidence in system compliance against the requirements. 
+\begin{table*}[!t]
+	\caption{Verification scenarios [P] and suitable methods.}\label{tab:testgen}
+	\centering
+	\begin{tabular}{llll}
+		\textbf{RQ}   & \textbf{Verification}  & \textbf{Verification} & \textbf{Scenario} \\ 
+		& \textbf{Class}         & \textbf{Method}		  & 		          \\ 
+		\hline
+		1.1 	      & simulation 	   & constrained randomisation, directed tests & path intersection     \\
+		low impact    & physical testing   & prescriptive trial 				       & path intersection	 \\
+		collisions    & runtime		   & collision monitoring metric 		       & operational		 \\
+		\hline
+		2.2 	      & formal 	 	   & probabilistic finite state machine 	   & n/a      \\
+		movement      & simulation 	   & constrained randomisation, directed tests & task representative     \\
+		every 100s    & physical, runtime  & stationary monitoring metric 			   & operational		 \\
+		\hline
+	\end{tabular}
+\end{table*}
+\begin{figure*}[!t]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/verification-testbench.png}
+	\caption{Adapted AMLAS verification assurance process: test bench.}
+	\label{amlas-a-testbench}
+\end{figure*}
 \\
 
 \subsubsection*{Verification Testbench}
@@ -835,30 +859,7 @@ For simulation-based testing, a testbench can be used to orchestrate the `verify
 
 In addition to requirements coverage, the there may also be coverage place on the Agent Controller code itself, ensuring that all code is executed as expected for each behaviour. Assertions Coverage is a third method by which safety assurance evidence can be gathered. Assertions are statements pertaining to system properties written in the form of a ruleset, for example ``A swarm agent shall not collide with another swarm agent". Such an assertion can be monitored during verification activities, which is represented in the lower right section of the testbench. Through \emph{logging} the appropriate data channels, such as agent position and speed, and then analysing the data to perform \emph{Assertion Testing} either at runtime or offline, the swarm can be shown to comply with these assertions e.g. see~\cite{harper2021safety}. \\
 
-\begin{table*}[t]
-\caption{Verification scenarios [P] and suitable methods.}\label{tab:testgen}
-\centering
-\begin{tabular}{llll}
-\textbf{RQ}   & \textbf{Verification}  & \textbf{Verification} & \textbf{Scenario} \\ 
-              & \textbf{Class}         & \textbf{Method}		  & 		          \\ 
-\hline
-1.1 	      & simulation 	   & constrained randomisation, directed tests & path intersection     \\
-low impact    & physical testing   & prescriptive trial 				       & path intersection	 \\
-collisions    & runtime		   & collision monitoring metric 		       & operational		 \\
-\hline
-2.2 	      & formal 	 	   & probabilistic finite state machine 	   & n/a      \\
-movement      & simulation 	   & constrained randomisation, directed tests & task representative     \\
-every 100s    & physical, runtime  & stationary monitoring metric 			   & operational		 \\
-\hline
-\end{tabular}
-\end{table*}
 
-\begin{figure*}
-	\centering
-	\includegraphics[width=1.0\textwidth]{figures/verification-testbench.png}
-	\caption{Adapted AMLAS verification assurance process: test bench.}
-	\label{amlas-a-testbench}
-\end{figure*}
 
 \subsubsection*{Verifiability \& Visualisation}
 
@@ -893,19 +894,18 @@ Figure~\ref{swarm_trust_spider} is an example of a safety visualisation spider g
 %\noindent WP4 = (Activities: 16, Inputs: EE, Outputs: FF), \\
 %\noindent WP3 = (Regulatory Considerations – 675 words / 0.75 page maximum)}}\\
 %See Fig.~\ref{amlas-a-stage6}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.5\textwidth]{figures/amlas-a-stage6_v2.png}%amlas-a-stage6.png
-	\caption{Adapted AMLAS model deployment assurance process.}
-	\label{amlas-a-stage6}
-\end{figure}
 
 \subsubsection*{Activity 15. Integrate EB}
 
 With the emergent behaviour verified, the next step is to take the model [V] as well as the system safety requirements [A], environment description [B] and system description [C] and integrate the emergent behaviour with the system to be deployed (see Fig.~\ref{amlas-a-stage6}). In this activity we use the inputs to this stage to educate the implementation of the emergent behaviour and anticipate errors we might expect in the interactions between agents and the overall emergent behaviour. Despite the rigorous validation and testing conducted in previous stages, there will still be a gap between the test environment and the intended, every day use, deployed scenario. The output, [DD] Model Development Log, captures these anticipated gaps between testing and reality and the differences in behaviour that might sprout from them.
 
 For example, once physically deployed it may become apparent that large fluctuations in speed used to maintain performance while keeping the system safe for humans, may in reality be too much of a draw on the agents batteries to get a reasonable lifetime out of each battery charge. To address this the behaviour may need to be tweaked to sacrifice some performance in the short term, reducing the rates of acceleration experienced by agents, in order to gain a longer battery life.
-
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=0.54\textwidth]{figures/amlas-a-stage6_v2.png}%amlas-a-stage6.png
+	\caption{Adapted AMLAS model deployment assurance process.}
+	\label{amlas-a-stage6}
+\end{figure}
 \subsubsection*{Activity 16. Test the Integration}
 
 Once the initial integration is complete the physical implementation should undergo an additional round of testing in which the system will be observed in multiple operational scenarios, as specified in [EE].

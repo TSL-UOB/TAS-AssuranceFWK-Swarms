@@ -116,17 +116,17 @@ AMLAS provides an explicit and structured safety case that the system is safe to
 AMLAS contains six stages, and the assurance activities are performed in parallel to the development of machine learning component. 
 The process is iterative by design and feedback is used to update previous stages. 
 
-\subsubsection{Safety Assurance of Autonomous Systems in Complex Environments (SACE)}
-\cite{SACE2022}
-
 \subsubsection{Societal Acceptability of Autonomous Systems (SOCA)}
 \cite{Porter2022,McDermid2021}
+
+\subsubsection{Safety Assurance of Autonomous Systems in Complex Environments (SACE)}
+\cite{SACE2022}
 
 \section{Framework}\label{framework}
 
 \subsection{Overview of Framework} \label{framework-overview}
 %The rest of Section \ref{framework} is organized as follows. 
-\textbf{In Section~\ref{framework-stage1}--\ref{framework-stage6}, using case study examples from the cloakroom, we discuss how the six AMLAS stages are adapted for autonomous robotic swarms. In addition to the safety requirements formulated based on AMLAS, we also formulate requirements for transparency (\ref{transparency-r}), ethics (\ref{ethics-r}) and regulations (\ref{regulations-r}). Extended details of the ethical and regulatory requirements have been included in the Appendix A and B respectively.}\\
+\textbf{In Section~\ref{framework-stage1}--\ref{framework-stage6}, using case study examples from the cloakroom, we discuss how the six AMLAS stages are adapted for autonomous robotic swarms. In addition to the safety requirements formulated based on AMLAS, we also formulate requirements for transparency (\ref{transparency-r}), ethics (\ref{ethics-r}) and regulations (\ref{regulations-r}). Extended details of the ethical and regulatory requirements have been included in the Appendix A and B, respectively.}\\
 
 %Simple algorithms are executed by individuals.
 %These simple behaviours performed by large numbers of agents build to emergent behaviours.
@@ -315,7 +315,14 @@ As suggested in AMLAS guidance, we use reviews and simulations to validate the E
 
 \paragraph*{[H] EB Safety Requirements}
 %\noindent \textbf{Stage 2 Requirements (Output H)}\\
-Cloakroom: Performance Requirements (see Table~\ref{tab:perormance}).
+\begin{itemize}
+	\item Performance requirements (see Table~\ref{tab:perormance}).
+	\item Adaptability requirements (see Table~\ref{tab:adaptability}). Metric: Swarm waiting time/time-in-area.
+	\item Human safety requirements (see Table~\ref{tab:human-s}). *Trained human in this case refers to workers within the case study setting. We assume that this individual has received relevant training \& experience in the use of the swarm system.
+	\item Environmental specification (see Table~\ref{tab:environment}). *p$_o$ = sum of objects  / m$^2$
+\end{itemize}
+
+
 \begin{table}[!t]
 	\centering
 	\begin{tabular}{|p{7mm}|p{72mm}|}
@@ -344,7 +351,7 @@ Cloakroom: Performance Requirements (see Table~\ref{tab:perormance}).
 	\end{tabular}
 	\caption{\label{tab:perormance}Performance requirements for the cloakroom.}
 \end{table}    
-Cloakroom: Adaptability Requirements (see Table~\ref{tab:adaptability}).
+
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|p{7mm}|p{72mm}|}
@@ -376,9 +383,9 @@ Cloakroom: Adaptability Requirements (see Table~\ref{tab:adaptability}).
 	\end{tabular}
 	\caption{\label{tab:adaptability}Adaptability requirements for the cloakroom.}
 \end{table}   
-Metric: Swarm waiting time/time-in-area.
 
-Cloakroom: Human Safety Requirements (see Table~\ref{tab:human-s}).
+
+
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|p{9mm}|p{72mm}|}
@@ -420,9 +427,7 @@ Cloakroom: Human Safety Requirements (see Table~\ref{tab:human-s}).
 	\end{tabular}
 	\caption{\label{tab:human-s}Human safety requirements for the cloakroom.}
 \end{table}   
-\noindent *Trained human in this case refers to workers within the case study setting. We assume that this individual has received relevant training \& experience in the use of the swarm system.
 
-Cloakroom: Environmental Specification (see Table~\ref{tab:environment}).
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|p{7mm}|p{72mm}|}
@@ -445,7 +450,7 @@ Cloakroom: Environmental Specification (see Table~\ref{tab:environment}).
 	\end{tabular}
 	\caption{\label{tab:environment}Environment requirements for the cloakroom.}
 \end{table}   
-\noindent *p$_o$ = sum of objects  / m$^2$
+
 
 \begin{table*}[!t]
 	\centering
@@ -470,7 +475,7 @@ Cloakroom: Environmental Specification (see Table~\ref{tab:environment}).
 	\caption{\label{tab:transparency}System transparency specification for the cloakroom.}
 \end{table*}
 
-In addition to the safety requirements derived based on AMLAS, we also derive requirements for transparency (~\ref{transparency-r}), ethics (~\ref{ethics-r}) and regulations (~\ref{regulations-r}), as discussed next.\\
+In addition to the safety requirements derived based on AMLAS, we also derive requirements for transparency (\ref{transparency-r}), ethics (\ref{ethics-r}) and regulations (\ref{regulations-r}), as discussed next.\\
 
 \subsubsection{Transparency Requirements: System Transparency Specification}\label{transparency-r}
 In this section, we show how IEEE P7001 standard can be applied to specify transparency requirements for the Cloakroom prior to its implementation, which is known as a process of \textit{System Transparency Specification} (STS) \cite{IEEE-P7001}. IEEE P7001 describes a set of normative requirements on transparency and explainability, which must be satisfied to be labelled as compliant. % cite both
@@ -510,7 +515,7 @@ The principle of beneficence requires consideration of the benefits of the devel
 
 First, this requirement forces developers to reflect on the reasons why they are developing a certain technology in the first place, what societal impact they aim to achieve, and whether these are positive impacts. There is usually some form of benefit associated with technological innovation, and it is unlikely that a marketable system would provide no benefits to stakeholders other than the manufacturers themselves.However, if no  beneficial use of the system can be identified, this should immediately be taken as an indication that manufacturers should reconsider developing the technology, at least in its current form \cite{Qin}. Second, outlining potential benefits is a necessary step to determine whether, ultimately, these benefits will outweigh the potential harms posed by the technology. Third, manufacturers should reflect on who the beneficiaries are in order to assess how benefits and risks of harm are distributed across stakeholders.
 
-Table \ref{tab:beneficence} illustrates the benefits a swarm system may produce in the cloakroom use case. To give one example, companies may benefit from the decentralised nature of the swarm, which is possible because swarm behaviour emerges from interactions across the individual agents. In particular, smaller businesses could benefit financially from the deployment of such a system. While bigger companies have the resources to invest in centralised robotic systems, which require dedicated heavy infrastructures and are designed to be optimised to meet the specific needs of the company, smaller businesses require fast, out-of-the-box setups that can easily adapt to different deployment scenarios. Thanks to their decentralised nature, robot swarms can offer this solution \cite{jones2020distributed}.
+Table \ref{tab:beneficence} illustrates the benefits a swarm system may produce in the cloakroom use case. To give one example, companies may benefit from the decentralised nature of the swarm, which is possible because swarm behaviour emerges from interactions across the individual agents. In particular, smaller businesses could benefit financially from the deployment of such a system. While bigger companies have the resources to invest in centralised robotic systems, which require dedicated heavy infrastructures and are designed to be optimised to meet the specific needs of the company, smaller businesses require fast, out-of-the-box setups that can easily adapt to different deployment scenarios. Thanks to their decentralised nature, robot swarms can offer this solution \cite{Jones2020}.
 \\
 \paragraph*{Non-maleficence requirements}
 The principle of non-maleficence requires consideration of how the development and deployment of a system may harm various stakeholders \cite{Porter2022}. The identification of risks of harm can, in turn, inform the development of design requirements to reduce the chance of harm eventuating. No system will ever be completely risk free, and discussions about what residual risks should be judged ``acceptable” raises important ethical and legal questions that fall beyond the scope of this paper \cite{fraser2021residual}.
@@ -529,7 +534,7 @@ Finally, the autonomy matrix highlights important challenges to attribution of r
 \paragraph*{Justice requirements}
 The principle of justice requires us to treat others in a fair, equitable, and appropriate way in light of what is due or owed to them \cite{beauchamp2019principles}. Among the main understandings of the concept, \textit{distributive justice} refers to the equitable and appropriate distribution of benefits and burdens, and so differs from \textit{procedural justice}, which focuses not on the fairness of the final allocation but of the procedures used to determine the allocation. \textit{Corrective justice} aims to rectify the injustice that one person has inflicted over another, and requires the existence of mechanisms for redress to be enacted \cite{sep-justice}. In contrast, \textit{retributive justice} is about inflicting punishment to those who have committed certain kinds of wrongful acts (e.g. negligence) \cite{sep-justice-retributive}. 
 
-In Table \ref{tab:justice}, we used these different understandings to distil the ways in which the development and deployment of the swarm may cause unfair treatment of various stakeholders in the cloakroom use case \cite{Porter2022}. The threat to justice that more clearly relates to swarms’ emergent behaviour concerns the procedure in which objects are deposited and retrieved. For example, a robotic cloakroom may lead to unfair treatment of people who are arguably entitled to retrieve their belongings first based on need, such as people who have deposited their mobility aids together with their jackets. In a cloakroom implementation in which the swarm agents move around the area by performing random walks, which are easy to implement with no centralised control unit \cite{jones2020distributed}, there is no priority order. When an agent finds a box that has been requested, it brings it back, even if it happens that that box was ordered later than another box.
+In Table \ref{tab:justice}, we used these different understandings to distil the ways in which the development and deployment of the swarm may cause unfair treatment of various stakeholders in the cloakroom use case \cite{Porter2022}. The threat to justice that more clearly relates to swarms’ emergent behaviour concerns the procedure in which objects are deposited and retrieved. For example, a robotic cloakroom may lead to unfair treatment of people who are arguably entitled to retrieve their belongings first based on need, such as people who have deposited their mobility aids together with their jackets. In a cloakroom implementation in which the swarm agents move around the area by performing random walks, which are easy to implement with no centralised control unit \cite{Jones2020}, there is no priority order. When an agent finds a box that has been requested, it brings it back, even if it happens that that box was ordered later than another box.
 
 This may be unproblematic in a small cloakroom, where waiting times are usually short. In a bigger area, a sub-requirement for RQ4 could be introduced to establish a priority mechanism for ``priority items” like mobility aids. However, care should be exercised in the implementation of this requirement. If agents started to ignore other items until they found and retrieved priority objects, it would likely reduce swarm efficiency. As a minimum, this would require stakeholders to make difficult decisions about how to strike a balance between efficiency and fairness; a significant decrease in system efficiency would end up disadvantaging those whose needs we want to prioritise. A better solution to implement a priority requirement would be to make it more likely that swarm agents carry boxes with priority items and so are ready to deliver them upon user’s request. This could be achieved by leveraging on other properties that a robot swarm needs by design, like reshuffling, where agents are designed with a probability to pick up a box they encounter and move it for a limited time, even if it is not of their interest \cite{milner2022stochastic}. Reshuffling is necessary in use cases like the cloakroom to avoid occluded boxes in the centre of a pile never being found. The probability of picking up and dropping a box may be changed so that agents encountering a priority item are required to carry it around for a little longer, hence increasing the chances that they will have it when that item is requested back. This example illustrates that, even when ethics requirements are clear, judgment still needs to be exercised in how to best implement them in a specific use case.  \\
 %\subsubsection
@@ -594,7 +599,7 @@ In the case of designing emergent behaviours data plays a vital role, though one
 
 % AMLAS - This activity requires as input the ML safety requirements ([H]) as described in Stage 2 and, from these requirements, data requirements ([L]) shall be generated. Of particular interest in the development of data requirements are those safety requirements which pertain to the description of the system environment.
 
-In our adaptation of activity 6 we take the emergent behaviour safety requirements [H] outlined in Stage 2 as an input. These safety requirements guide the data requirements in this activity, feeding into the data specification that we outline here. Unlike the original AMLAS framework, we have split the data requirement [L] into two multi-agent focused requirements: [L.0] data type requirements and [L.1] data availability constraints.
+In our adaptation of activity 6 we take the emergent behaviour safety requirements [H] outlined in Stage 2 as an input (see Fig.~\ref{amlas-a-stage3}). These safety requirements guide the data requirements in this activity, feeding into the data specification that we outline here. Unlike the original AMLAS framework, we have split the data requirement [L] into two multi-agent focused requirements: [L.0] data type requirements and [L.1] data availability constraints.
 
 \paragraph*{[L.0] Data Type Requirements}
 
@@ -602,7 +607,7 @@ This elements focus on the relevance, completeness, accuracy, and balance of the
 
 The relevance of the data used in the development of the emergent behaviour specifies the extent to which the test environment must match the intended operating domain into which the model is to be deployed. Examples of requirements relating to relevance are shown in Table \ref{tab:L0_relevance}.
 
-\begin{table}[h]
+\begin{table}[!t]%[h]
     \centering
     \begin{tabular}{p{1cm} p{6cm}}
         \textbf{ID} & \textbf{Example} \\
@@ -619,7 +624,7 @@ The relevance of the data used in the development of the emergent behaviour spec
 
 The completeness of the data specifies the conditions under which we test the behaviour algorithm i.e. the volume of experiments or tests that will be run, the variety of tests executed, and the diversity of environments expected to be used in the testing process. Requirements examples relating to completeness are shown in Table \ref{tab:L0_completeness}.
 
-\begin{table}[h]
+\begin{table}%[h]
     \centering
     \begin{tabular}{p{1cm} p{6cm}}
         \textbf{ID} & \textbf{Example} \\
@@ -768,7 +773,7 @@ In the design of an emergent behaviour algorithm, the challenge is in selecting 
 
 \subsubsection*{Activity 10. Create EB Algorithm:}
 
-Here we have two levels to consider: the individual level behaviour which is informed by individual agent sensing capabilities [N*] and the swarm level emergent behaviour which shall necessarily meet the safety requirements [H] defined in Stage 2. In the example of the cloakroom given in Section \ref{ex:cloakroom}, the target emergent behaviour for the swarm shall ensure that items are stored and retrieved by individuals. Performance requirements RQ1.1 and RQ1.2 specify an upper bound on the low/high impact collisions that a swarm shall experience in a given time frame. These requirements may be fulfilled by constraining the maximum velocity of individual robots, for example, or by ensuring that a robot has a camera or infra-red sensors which enable it to detect obstacles. The outputs from this activity follow the AMLAS framework, with a candidate emergent behaviour algorithm produced rather than a ML model. Output [U], the model development log, should log the rationale in the design process of the emergent behaviour algorithm.
+Here we have two levels to consider: the individual level behaviour which is informed by individual agent sensing capabilities [N*] and the swarm level emergent behaviour which shall necessarily meet the safety requirements [H] defined in Stage 2 (see Fig.~\ref{amlas-a-stage4}). In the example of the cloakroom given in Section \ref{ex:cloakroom}, the target emergent behaviour for the swarm shall ensure that items are stored and retrieved by individuals. Performance requirements RQ1.1 and RQ1.2 specify an upper bound on the low/high impact collisions that a swarm shall experience in a given time frame. These requirements may be fulfilled by constraining the maximum velocity of individual robots, for example, or by ensuring that a robot has a camera or infra-red sensors which enable it to detect obstacles. The outputs from this activity follow the AMLAS framework, with a candidate emergent behaviour algorithm produced rather than a ML model. Output [U], the model development log, should log the rationale in the design process of the emergent behaviour algorithm.
 
 \subsubsection*{Activity 11. Test EB Algorithm:}
 
@@ -800,28 +805,28 @@ These examples will now be expanded in more detail below.
 \end{figure}
 
 
-\subsubsection{Verification Scenario (Test Generation) [P]}
+\subsubsection*{[P] Verification Scenario (Test Generation)}
 
 In most cases there will be multiple, valid verification scenarios, also called test cases, applicable for each of the safety specifications. A `good test case' must be \emph{effective} at finding bugs or defects, \emph{efficient} in minimising the number of tests required, use resources \emph{economically} and be \emph{robust} to system changes~\cite{Fewster1999}. Using the EB Safety Requirements specification [H] and the principles of `good test cases', a few examples of potential scenarios and appropriate verification methods are explored in Table~\ref{tab:testgen}. 
 
-\paragraph{RQ1.1 Low Impact collisions}
+\paragraph*{RQ1.1 Low Impact collisions}
 
 For RQ1.1, relating to low impact collisions, suitable scenarios should consider a mix of both synthetic and physical testing to observe the safety compliance of the swarm controller. An important metric for assessing this safety requirement will be collision detection which could be achieved either through on-board hardware sensors or indirectly through external monitoring, e.g. overhead camera and tracking system. Simulation is a valid verification method for RQ1.1 as testing time can be accelerated through parallelisation and test generation could be automated to include some randomisation and constrained randomisation whilst monitoring the collision detection metric. Physical testing, usually limited due to time and cost constraints, should be more prescriptive and should orchestrate scenarios that have a high probability of exercising the collision detection routine of the swarm agent controller ([V] EB Algorithm), for example forcing swarm agents to travel a narrow passage to elevate swarm density. 
 
 Runtime verification can offer a solution to verifying systems that operate in large state-spaces, that may be intractable to verify at design time or through sampling the state space in testing. However, the choice or design of runtime oracle which provides the ground truth may require significant development, or innovative solutions~\cite{maple2020cyres}. However, for RQ1.1 of the swarm safety requirement this may be achieved with collision detection monitors, either implemented within the swarm robots or externally monitored through a tracking system, e.g. Vicon. Tracking with an external systems may be less reliable that physical sensing, e.g. accelerometer based collision detection, but being an independent system offers other assurances, being an independent evidence source and protect against cascading failure that may occur due to collisions where the agents fail to report the collision event due to other failures, e.g. network connectivity.
 
-\paragraph{RQ2.2 Agent Movement}
+\paragraph*{RQ2.2 Agent Movement}
 
 For RQ2.2, which ensures agents move every 100 seconds outside the delivery area, a suitable verification metric could monitor the time agents are outside a designated geospatial area (the delivery site) in addition to monitoring agent wheel speed. Scenarios should be biased towards these conditions by, for example, ensuring a sufficient number of agents outside the delivery area (by making the delivery area small or non-existent) and monitoring when wheel speed is zero for sufficiently long horizons to improve the likelihood of witnessing such an event by chance, e.g. see~\cite{chance2020agency}. Increasing the chance that such rare events occur can accelerate evidence gathering which could be done in this case, for example, by constraining the agents environment, increasing swarm density, or fault injecting to the collision sensors so valid movement actions are limited. 
 
 Whereas RQ1.1 is only suitable for simulation and physical testing, RQ2.2 could use these techniques in addition to also using a formal verification analysis. A formal analysis could take the form of a probabilistic finite state machine~\cite{Calinescu2018}, which would require a description of the agent states and the state transition probabilities. State transition probabilities can be derived from an action selection policy which, for this use case, can be derived from the swarm controller behaviour tree. Whereas testing based verification (physical, simulation, etc.) samples the input space, a formal analysis can prove a system property across the entire parameter range, which can be particularly beneficial in giving confidence in system compliance against the requirements. 
+\\
 
+\subsubsection*{Verification Testbench}
 
-\subsubsection{Verification Testbench}
+For simulation-based testing, a testbench can be used to orchestrate the `verify' task (activity 13 of AMLAS), see Fig.~\ref{amlas-a-testbench}. The testbench operates by using a \emph{simulator} to test the \emph{Agent Controller} software ([V] EB Algorithm) against \emph{Static} and \emph{Dynamic} stimuli. These stimuli are formed from \emph{Scenery} and \emph{Actor Behaviour} components which could be, for example, a virtual warehouse with staff, other robots and controllable lighting presenting a typical scenario to the virtual swarm. The \emph{Swarm Requirements} are used to drive suitable experiment instantiation so that the stimuli provoke the intended behaviours in the swarm that will prove (or possibly disprove) the safety properties under observation. A coverage monitor will be used to check that all the requirements have sufficient evidence against each entry and, for dynamic testbench architectures, can even be used to drive additional test cases. 
 
-For simulation-based testing, a testbench can be used to orchestrate the `verify' task (stage 13 of AMLAS), see Figure~\ref{amlas-a-testbench}. The testbench operates by using a \emph{simulator} to test the \emph{Agent Controller} software ([V] EB Algorithm) against \emph{Static} and \emph{Dynamic} stimuli. These stimuli are formed from \emph{Scenery} and \emph{Actor Behaviour} components which could be, for example, a virtual warehouse with staff, other robots and controllable lighting presenting a typical scenario to the virtual swarm. The \emph{Swarm Requirements} are used to drive suitable experiment instantiation so that the stimuli provoke the intended behaviours in the swarm that will prove (or possibly disprove) the safety properties under observation. A coverage monitor will be used to check that all the requirements have sufficient evidence against each entry and, for dynamic testbench architectures, can even be used to drive additional test cases. 
-
-In addition to requirements coverage, the there may also be coverage place on the Agent Controller code itself, ensuring that all code is executed as expected for each behaviour. Assertions Coverage is a third method by which safety assurance evidence can be gathered. Assertions are statements pertaining to system properties written in the form of a ruleset, for example "A swarm agent shall not collide with another swarm agent". Such an assertion can be monitored during verification activities, which is represented in the lower right section of the testbench. Through \emph{logging} the appropriate data channels, such as agent position and speed, and then analysing the data to perform \emph{Assertion Testing} either at runtime or offline, the swarm can be shown to comply with these assertions e.g. see~\cite{harper2021safety}. 
+In addition to requirements coverage, the there may also be coverage place on the Agent Controller code itself, ensuring that all code is executed as expected for each behaviour. Assertions Coverage is a third method by which safety assurance evidence can be gathered. Assertions are statements pertaining to system properties written in the form of a ruleset, for example "A swarm agent shall not collide with another swarm agent". Such an assertion can be monitored during verification activities, which is represented in the lower right section of the testbench. Through \emph{logging} the appropriate data channels, such as agent position and speed, and then analysing the data to perform \emph{Assertion Testing} either at runtime or offline, the swarm can be shown to comply with these assertions e.g. see~\cite{harper2021safety}. \\
 
 \begin{figure*}
 	\centering
@@ -849,7 +854,8 @@ every 100s    & physical, runtime  & stationary monitoring metric 			   & operat
 \end{tabular}
 \end{table*}
 
-\subsubsection{Verifiability \& Visualisation}
+
+\subsubsection*{Verifiability \& Visualisation}
 
 Physical testing offers the opportunity to measure ground-truth..
 Resolves the reality-gap to simulation...
@@ -857,7 +863,7 @@ Physical tends to take longer, cost more to acquire data...
 
 Verifiability is the process by which the verification task can be achieved with less effort through implementation of useful metrics and processes prior to the  development stage, i.e. at design time. Much effort goes into verifying systems that have already been developed, but by thinking how system properties can be observed or measured during the design stage and implementing these, will allow for greater transparency and explainability of the system to verification engineers and regulators. This could be creating software inspection points~\cite{koopman2018toward} giving visibility of decisions or actions taken by the system in a human-readable format. 
 
-Fig.~\ref{swarm_trust_spider} is an example of a safety visualisation spider graph for a swarm. By considering verifiability, monitors could be included into the system to monitor events such as \emph{Task Performance}, \emph{Agent Uptime} and \emph{Collision Avoidance} rate. If the average \emph{Idle Rate} of the swarm was monitored then operators could identify optimal operational agent numbers for the swarm, and either add or remove agents as a direct response to this metric, to give optimal task performance. By visualising \emph{Network Connectivity} operators can be reassured of this function to improve trust and adoption of the system and help debug system if error occur. 
+Figure~\ref{swarm_trust_spider} is an example of a safety visualisation spider graph for a swarm. By considering verifiability, monitors could be included into the system to monitor events such as \emph{Task Performance}, \emph{Agent Uptime} and \emph{Collision Avoidance} rate. If the average \emph{Idle Rate} of the swarm was monitored then operators could identify optimal operational agent numbers for the swarm, and either add or remove agents as a direct response to this metric, to give optimal task performance. By visualising \emph{Network Connectivity} operators can be reassured of this function to improve trust and adoption of the system and help debug system if error occur. 
 
 \begin{figure}
 	\centering
